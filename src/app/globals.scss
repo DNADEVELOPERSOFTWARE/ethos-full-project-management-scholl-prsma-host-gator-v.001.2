@@ -1,0 +1,49 @@
+/* =====================================================
+   SCSS GLOBAL (NOVA ARQUITETURA)
+   ⚠️ @use SEMPRE PRIMEIRO
+===================================================== */
+@use "@/styles/main";
+
+/* =====================================================
+   TAILWIND (BASE DO PROJETO)
+===================================================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================
+   RESET GLOBAL
+===================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* =====================================================
+   BODY
+===================================================== */
+body {
+  background: var(--color-bg-default);
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =====================================================
+   TOKENS CSS (runtime)
+===================================================== */
+:root {
+  --color-bg-default: #fcffff;
+  --color-text-primary: #011f53;
+
+  --font-primary: "Inter", system-ui, -apple-system, sans-serif;
+}

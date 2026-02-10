@@ -1,0 +1,427 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id       String @id
+  username String @unique
+}
+
+// model Student {
+//   id              String           @id
+//   userId          String           @unique
+//   name            String
+//   surname         String
+//   phone           String?          @unique
+//   address         String
+//   img             String?
+//   bloodType       String
+//   sex             UserSex
+//   createdAt       DateTime         @default(now())
+//   parentId        String
+//   classId         Int
+//   gradeId         Int
+//   birthday        DateTime
+//   description     String?
+//   attendances     Attendance[]
+//   results         Result[]
+//   class           Class            @relation(fields: [classId], references: [id])
+//   grade           Grade            @relation(fields: [gradeId], references: [id])
+//   parent          Parent           @relation(fields: [parentId], references: [id])
+//   users           User[]
+//   // videoLessons    VideoLesson[]
+//   enrollments     Enrollment[]
+//   payments        Payment[]
+//   monthlyPayments MonthlyPayment[]
+//   // studentPayments StudentPayment[]
+// }
+model Student {
+  id String @id
+  // userId String @unique
+
+  name        String
+  surname     String
+  phone       String?  @unique
+  address     String
+  img         String?
+  bloodType   String
+  sex         UserSex
+  birthday    DateTime
+  description String?
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [id], references: [id], onDelete: Cascade)
+
+  parentId String
+  classId  Int
+  gradeId  Int
+
+  parent Parent @relation(fields: [parentId], references: [id])
+  class  Class  @relation(fields: [classId], references: [id])
+  grade  Grade  @relation(fields: [gradeId], references: [id])
+
+  attendances     Attendance[]
+  results         Result[]
+  enrollments     Enrollment[]
+  payments        Payment[]
+  monthlyPayments MonthlyPayment[]
+}
+
+// model StudentPayment {
+//   id        String  @id @default(cuid())
+//   studentId Int
+//   month     Int
+//   year      Int
+//   paid      Boolean @default(false)
+
+//   student Student @relation(fields: [studentId], references: [id])
+
+//   @@unique([studentId, month, year])
+// }
+
+// model Teacher {
+//   id           String        @id
+//   name         String
+//   surname      String
+//   phone        String?       @unique
+//   address      String
+//   img          String?
+//   bloodType    String
+//   sex          UserSex
+//   createdAt    DateTime      @default(now())
+//   birthday     DateTime
+//   description  String?
+//   classes      Class[]
+//   lessons      Lesson[]
+//   subjects     Subject[]     @relation("SubjectToTeacher")
+//   couses       Course[]
+//   videoLessons VideoLesson[]
+//   users        User[]
+// }
+model Teacher {
+  id String @id
+  //  userId String @unique
+
+  name        String
+  surname     String
+  phone       String?  @unique
+  address     String
+  img         String?
+  bloodType   String
+  sex         UserSex
+  birthday    DateTime
+  description String?
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [id], references: [id], onDelete: Cascade)
+
+  classes      Class[]
+  lessons      Lesson[]
+  subjects     Subject[]     @relation("SubjectToTeacher")
+  couses       Course[]
+  videoLessons VideoLesson[]
+}
+
+model Parent {
+  id String @id
+  // userId String @unique
+
+  name      String
+  surname   String
+  phone     String   @unique
+  address   String
+  createdAt DateTime @default(now())
+
+  user     User      @relation(fields: [id], references: [id], onDelete: Cascade)
+  students Student[]
+}
+
+model Grade {
+  id          Int       @id @default(autoincrement())
+  level       Int       @unique
+  description String
+  classess    Class[]
+  students    Student[]
+}
+
+model Class {
+  id              Int              @id @default(autoincrement())
+  name            String           @unique
+  capacity        Int
+  supervisorId    String?
+  gradeId         Int
+  announcements   Announcement[]
+  grade           Grade            @relation(fields: [gradeId], references: [id])
+  supervisor      Teacher?         @relation(fields: [supervisorId], references: [id])
+  events          Event[]
+  lessons         Lesson[]
+  students        Student[]
+  videoLessons    VideoLesson[]
+  monthlyPayments MonthlyPayment[]
+}
+
+model Subject {
+  id           Int           @id @default(autoincrement())
+  name         String        @unique
+  lessons      Lesson[]
+  teachers     Teacher[]     @relation("SubjectToTeacher")
+  videoLessons VideoLesson[]
+}
+
+model Lesson {
+  id          Int          @id @default(autoincrement())
+  name        String
+  day         Day
+  startTime   DateTime
+  endTime     DateTime
+  subjectId   Int
+  classId     Int
+  teacherId   String
+  courseId    String?
+  assignments Assignment[]
+  attendances Attendance[]
+  exams       Exam[]
+  class       Class        @relation(fields: [classId], references: [id])
+  subject     Subject      @relation(fields: [subjectId], references: [id])
+  teacher     Teacher      @relation(fields: [teacherId], references: [id])
+  course      Course?      @relation(fields: [courseId], references: [id])
+}
+
+model VideoLesson {
+  id          String  @id @default(uuid())
+  title       String
+  description String?
+
+  videoUrl String
+  duration Float?
+
+  isActive Boolean @default(true)
+
+  // 🔐 autoria
+  authorId   String
+  authorName String
+  authorRole String
+
+  // 👨‍🏫 relacionamento atual
+  teacherId String
+  publicId  String
+  classId   Int
+  subjectId Int
+
+  teacher Teacher @relation(fields: [teacherId], references: [id])
+  class   Class   @relation(fields: [classId], references: [id])
+  subject Subject @relation(fields: [subjectId], references: [id])
+
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Exam {
+  id        Int      @id @default(autoincrement())
+  title     String
+  startTime DateTime
+  endTime   DateTime
+  lessonId  Int
+  lesson    Lesson   @relation(fields: [lessonId], references: [id])
+  results   Result[]
+}
+
+model Assignment {
+  id        Int      @id @default(autoincrement())
+  title     String
+  startDate DateTime
+  dueDate   DateTime
+  lessonId  Int?
+  lesson    Lesson?  @relation(fields: [lessonId], references: [id])
+  results   Result[]
+}
+
+model Result {
+  id           Int         @id @default(autoincrement())
+  score        Int
+  examId       Int?
+  assignmentId Int?
+  studentId    String
+  assignment   Assignment? @relation(fields: [assignmentId], references: [id])
+  exam         Exam?       @relation(fields: [examId], references: [id])
+  student      Student     @relation(fields: [studentId], references: [id])
+}
+
+model Course {
+  id          String       @id @default(uuid())
+  name        String
+  teachers    Teacher[]
+  lessons     Lesson[]
+  enrollments Enrollment[]
+}
+
+model Enrollment {
+  id        String @id @default(uuid())
+  studentId String
+  courseId  String
+
+  isActive Boolean @default(true)
+
+  student Student @relation(fields: [studentId], references: [id])
+  course  Course  @relation(fields: [courseId], references: [id])
+}
+
+model Payment {
+  id        String        @id @default(uuid())
+  studentId String
+  courseId  String
+  month     Int
+  year      Int
+  status    PaymentStatus
+
+  student Student @relation(fields: [studentId], references: [id])
+}
+
+model Attendance {
+  id        Int              @id @default(autoincrement())
+  date      DateTime
+  studentId String
+  lessonId  Int
+  status    AttendanceStatus
+  lesson    Lesson           @relation(fields: [lessonId], references: [id])
+  student   Student          @relation(fields: [studentId], references: [id])
+}
+
+model Event {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  startTime   DateTime
+  endTime     DateTime
+  classId     Int?
+  class       Class?   @relation(fields: [classId], references: [id])
+}
+
+model Announcement {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  date        DateTime
+  classId     Int?
+  class       Class?   @relation(fields: [classId], references: [id])
+}
+
+model Contact {
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String
+  message   String
+  createdAt DateTime  @default(now())
+  isRead    Boolean   @default(false)
+  reply     String?
+  repliedAt DateTime?
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  role      Role
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  role      Role
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+// model User {
+//   id        String   @id @default(uuid())
+//   username  String   @unique
+//   name      String
+//   email     String?  @unique
+//   role      Role
+//   password  String
+//   createdAt DateTime @default(now())
+
+//   // 🔐 RESET PASSWORD
+//   resetToken        String?
+//   resetTokenExpires DateTime?
+
+//   // 🔗 RELAÇÕES
+//   teacher   Teacher? @relation(fields: [teacherId], references: [id])
+//   student   Student? @relation(fields: [studentId], references: [id])
+//   parent    Parent?  @relation(fields: [parentId], references: [id])
+//   teacherId String?
+//   studentId String?
+//   parentId  String?
+// }
+model User {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  name      String
+  email     String?  @unique
+  role      Role
+  password  String
+  createdAt DateTime @default(now())
+
+  resetToken        String?
+  resetTokenExpires DateTime?
+
+  // 🔗 perfis (1–1)
+  teacher Teacher?
+  student Student?
+  parent  Parent?
+}
+
+model MonthlyPayment {
+  id        String @id @default(uuid())
+  studentId String
+  classId   Int
+
+  month  Int
+  year   Int
+  status PaymentStatus
+
+  student Student @relation(fields: [studentId], references: [id])
+  class   Class   @relation(fields: [classId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@unique([studentId, classId, month, year])
+}
+
+enum UserSex {
+  MALE
+  FEMALE
+}
+
+enum Day {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+}
+
+enum AttendanceStatus {
+  PRESENT
+  ABSENT
+  LATE
+  JUSTIFIED
+  EXCUSED
+}
+
+enum Role {
+  admin
+  teacher
+  student
+  parent
+}
+
+enum PaymentStatus {
+  PAID
+  PENDING
+  LATE
+}

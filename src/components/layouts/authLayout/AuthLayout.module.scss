@@ -1,0 +1,33 @@
+@use "@/styles/abstracts/variables" as v;
+
+.authLayout {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    180deg,
+    v.$bl11 0%,
+    v.$bl07 100%
+  );
+
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("/assets/ethos-icon.svg");
+    background-repeat: no-repeat;
+    background-position: right -140px bottom -120px;
+    background-size: clamp(280px, 40vw, 420px);
+
+    opacity: 0.025;
+    pointer-events: none;
+  }
+}

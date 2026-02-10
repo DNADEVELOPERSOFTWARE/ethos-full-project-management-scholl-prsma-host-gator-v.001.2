@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 63a6e16bb1d6a30ad8525b91e930d9c2e42a58ef CURSOS ORIGAMID <paulocursosorigamid@gmail.com> 1770572270 -0300	branch: Created from HEAD
+63a6e16bb1d6a30ad8525b91e930d9c2e42a58ef 0e307562f94404e49a49a0a2f882c38694e743ba CURSOS ORIGAMID <paulocursosorigamid@gmail.com> 1770574147 -0300	commit: feat(scss):create new scss structure to migrate from tailwind to scsss
+0e307562f94404e49a49a0a2f882c38694e743ba fa53efb78e88b584b43e5d3a71bc9ac47133f448 CURSOS ORIGAMID <paulocursosorigamid@gmail.com> 1770672347 -0300	commit: feat(scss):modified globals.scss and register.module.scss
+fa53efb78e88b584b43e5d3a71bc9ac47133f448 fa53efb78e88b584b43e5d3a71bc9ac47133f448 CURSOS ORIGAMID <paulocursosorigamid@gmail.com> 1770692646 -0300	Branch: renamed refs/heads/feature/refacture-tailwind-to-scss to refs/heads/main

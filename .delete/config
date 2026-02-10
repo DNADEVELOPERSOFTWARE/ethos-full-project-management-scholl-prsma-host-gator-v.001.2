@@ -1,0 +1,41 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://github.com/developersoftwarebrazil/ethos-full-project-management-scholl-prsma-host-gator-v.001.2.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+	gk-last-accessed = 2026-01-18T19:48:52.268Z
+	gk-last-modified = 2026-01-18T19:48:52.268Z
+[branch "refactor/structure"]
+	remote = origin
+	merge = refs/heads/refactor/structure
+	vscode-merge-base = origin/refactor/structure
+	gk-last-accessed = 2026-01-18T19:58:07.420Z
+	gk-last-modified = 2026-01-18T19:58:07.420Z
+[branch "feature/auth-login-reset"]
+	github-pr-base-branch = "developersoftwarebrazil#ethos-full-project-management-school-prisma-host-gator-v.001.2#refactor/structure"
+	vscode-merge-base = origin/refactor/structure
+	remote = origin
+	gk-last-accessed = 2026-01-21T00:21:58.548Z
+	gk-last-modified = 2026-01-21T00:21:58.548Z
+	merge = refs/heads/feature/auth-login-reset
+[branch "feature/ead-auth-video"]
+	github-pr-base-branch = "developersoftwarebrazil#ethos-full-project-management-school-prisma-host-gator-v.001.2#feature/auth-login-reset"
+	vscode-merge-base = origin/feature/auth-login-reset
+	gk-last-accessed = 2026-02-08T17:41:18.453Z
+	remote = origin
+	gk-last-modified = 2026-02-08T16:14:37.930Z
+	merge = refs/heads/feature/ead-auth-video
+[branch "main"]
+	github-pr-base-branch = "developersoftwarebrazil#ethos-full-project-management-school-prisma-host-gator-v.001.2#feature/ead-auth-video"
+	vscode-merge-base = origin/feature/ead-auth-video
+	remote = origin
+	gk-last-accessed = 2026-02-08T18:08:48.986Z
+	gk-last-modified = 2026-02-08T18:08:48.986Z
+	merge = refs/heads/feature/refacture-tailwind-to-scss
+	github-pr-base-branch = "developersoftwarebrazil#ethos-full-project-management-school-prisma-host-gator-v.001.2#feature/refacture-tailwind-to-scss"

@@ -1,0 +1,9 @@
+@use "../abstracts/variables" as v;
+
+:root[data-theme="light"] {
+  --color-bg: #{v.$grl01};
+  --color-bg-soft: #{v.$grl02};
+  --color-text: #{v.$bl08};
+  --color-border: #{v.$bl03};
+  --color-accent: #{v.$ethos-gold};
+}
