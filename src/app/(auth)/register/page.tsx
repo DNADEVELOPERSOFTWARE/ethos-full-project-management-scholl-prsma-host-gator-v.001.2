@@ -12,10 +12,14 @@
 // import * as Clerk from "@clerk/elements/common";
 // import * as SignUp from "@clerk/elements/sign-up";
 
+import styles from "@/styles/pages/auth.module.scss";
+import inputStyles from "@/styles/components/input.module.scss";
+
+
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import styles from "@/styles/account/register/Register.module.scss";
+
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -85,7 +89,7 @@ const RegisterPage = () => {
           {error && <p className={styles.error}>{error}</p>}
 
           <form onSubmit={handleRegister} className={styles.form}>
-            <div className={styles.field}>
+            <div className={inputStyles.field}>
               <label>Nome completo</label>
               <input
                 type="text"
@@ -96,7 +100,7 @@ const RegisterPage = () => {
               />
             </div>
 
-            <div className={styles.field}>
+            <div className={inputStyles.field}>
               <label>Usuário</label>
               <input
                 type="text"
@@ -106,7 +110,7 @@ const RegisterPage = () => {
                 required
               />
             </div>
-            <div className={styles.field}>
+            <div className={inputStyles.field}>
               <label>Email</label>
               <input
                 type="email"
@@ -117,7 +121,7 @@ const RegisterPage = () => {
               />
             </div>
 
-            <div className={styles.field}>
+            <div className={inputStyles.field}>
               <label>Senha</label>
               <input
                 type="password"

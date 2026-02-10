@@ -4,7 +4,9 @@ import Image from "next/image";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-import styles from "@/styles/account/login/Login.module.scss";
+// import styles from "@/styles/account/login/Login.module.scss";
+import styles from "@/styles/pages/auth.module.scss";
+import inputStyles from "@/styles/components/input.module.scss";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -53,7 +55,7 @@ export default function ForgotPasswordPage() {
           Informe seu email para receber o link de redefinição de senha
         </p>
 
-        <div className={styles.field}>
+        <div className={inputStyles.field}>
           <label>Email</label>
           <input
             type="email"

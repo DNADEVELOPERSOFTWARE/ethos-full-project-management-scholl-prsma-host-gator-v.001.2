@@ -17,7 +17,10 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import styles from "@/styles/account/login/Login.module.scss";
+// import styles from "@/styles/account/login/Login.module.scss";
+import styles from "@/styles/pages/auth.module.scss";
+import inputStyles from "@/styles/components/input.module.scss";
+
 
 const LoginPage = () => {
   const router = useRouter();
@@ -118,7 +121,7 @@ const LoginPage = () => {
 
         {error && <p className={styles.loginError}>{error}</p>}
 
-        <div className={styles.field}>
+        <div className={inputStyles.field}>
           <label>Nome de usuário</label>
           <input
             type="text"
@@ -129,7 +132,7 @@ const LoginPage = () => {
           />
         </div>
 
-        <div className={styles.field}>
+        <div className={inputStyles.field}>
           <label>Senha</label>
           <input
             type="password"
