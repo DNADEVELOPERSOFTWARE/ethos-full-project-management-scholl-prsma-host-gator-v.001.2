@@ -30,9 +30,11 @@ body {
    BODY
 ===================================================== */
 body {
-  background: var(--color-bg-default);
-  color: var(--color-text-primary);
-  font-family: var(--font-primary);
+
+background: var(--surface-primary);
+  color: var(--text-primary);
+  font-family: var(--font-inter), sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

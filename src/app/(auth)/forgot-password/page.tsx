@@ -56,8 +56,9 @@ export default function ForgotPasswordPage() {
         </p>
 
         <div className={inputStyles.field}>
-          <label>Email</label>
+          <label className={`${styles.label} ${inputStyles.label}`}>Email</label>
           <input
+            className={`${styles.input} ${inputStyles.input}`}  
             type="email"
             required
             value={email}

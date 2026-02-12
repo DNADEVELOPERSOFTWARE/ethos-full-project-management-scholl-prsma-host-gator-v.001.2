@@ -21,7 +21,6 @@ import { useState } from "react";
 import styles from "@/styles/pages/auth.module.scss";
 import inputStyles from "@/styles/components/input.module.scss";
 
-
 const LoginPage = () => {
   const router = useRouter();
 
@@ -122,8 +121,9 @@ const LoginPage = () => {
         {error && <p className={styles.authError}>{error}</p>}
 
         <div className={inputStyles.field}>
-          <label>Nome de usuário</label>
+          <label className={`${styles.label} ${inputStyles.label}`}>Nome de usuário</label>
           <input
+            className={`${styles.input} ${inputStyles.input}`}
             type="text"
             required
             value={username}
@@ -133,8 +133,9 @@ const LoginPage = () => {
         </div>
 
         <div className={inputStyles.field}>
-          <label>Senha</label>
+          <label className={`${styles.label} ${inputStyles.label}`}>Senha</label>
           <input
+            className={`${styles.input} ${inputStyles.input}`}
             type="password"
             required
             value={password}

@@ -92,8 +92,8 @@ export default function RegisterPage() {
 
           <form onSubmit={handleRegister} className={styles.form}>
             <div className={inputStyles.field}>
-              <label>Nome completo</label>
-              <input
+              <label className={`${styles.label} ${inputStyles.label}`}>Nome completo</label>
+              <input className={`${styles.input} ${inputStyles.input}`}
                 type="text"
                 placeholder="Administrador"
                 value={name}
@@ -103,8 +103,8 @@ export default function RegisterPage() {
             </div>
 
             <div className={inputStyles.field}>
-              <label>Usuário</label>
-              <input
+              <label className={`${styles.label} ${inputStyles.label}`}>Usuário</label>
+              <input className={`${styles.input} ${inputStyles.input}`}
                 type="text"
                 placeholder="admin"
                 value={username}
@@ -114,8 +114,8 @@ export default function RegisterPage() {
             </div>
 
             <div className={inputStyles.field}>
-              <label>Email</label>
-              <input
+              <label className={`${styles.label} ${inputStyles.label}`}>Email</label>
+              <input className={`${styles.input} ${inputStyles.input}`}
                 type="email"
                 placeholder="admin@ethos.com"
                 value={email}
@@ -125,8 +125,8 @@ export default function RegisterPage() {
             </div>
 
             <div className={inputStyles.field}>
-              <label>Senha</label>
-              <input
+              <label className={`${styles.label} ${inputStyles.label}`}>Senha</label>
+              <input className={`${styles.input} ${inputStyles.input}`}
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

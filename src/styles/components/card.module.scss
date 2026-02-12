@@ -1,0 +1,12 @@
+.card {
+  width: 100%;
+  max-width: 420px;
+
+  background: var(--surface-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: 22px;
+
+  padding: 2.75rem 2.5rem;
+
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+}

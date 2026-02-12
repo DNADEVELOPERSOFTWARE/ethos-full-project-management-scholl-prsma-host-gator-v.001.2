@@ -39,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     // <ClerkProvider>
-    <html lang="en">
+    <html lang="en" data-theme="dark">
       <body className={inter.className}>
         {children} <ToastContainer position="bottom-right" theme="dark" />
          {/* Video.js (OBRIGATÓRIO) */}

@@ -1,13 +1,30 @@
 .button {
-  background: #f2b84b;
-  color: #0c0f1a;
-  font-weight: 600;
+  width: 100%;
+
+  background: var(--accent-primary);
+  color: var(--button-text);
+
+  border: none;
   border-radius: 12px;
+
   padding: 0.9rem;
+
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+
+  cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .button:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(242, 184, 75, 0.3);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
