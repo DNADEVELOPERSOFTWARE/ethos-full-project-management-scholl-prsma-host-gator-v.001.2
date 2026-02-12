@@ -1,0 +1,21 @@
+@use "@/styles/components/button" as buttonStyles;
+
+.button {
+  @include buttonStyles.button-base;
+}
+
+.primary {
+  @include buttonStyles.button-primary;
+}
+
+.secondary {
+  @include buttonStyles.button-secondary;
+}
+
+.ghost {
+  @include buttonStyles.button-ghost;
+}
+
+.fullWidth {
+  width: 100%;
+}

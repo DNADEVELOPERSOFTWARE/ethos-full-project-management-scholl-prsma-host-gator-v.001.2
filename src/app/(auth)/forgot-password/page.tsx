@@ -6,7 +6,8 @@ import { toast } from "react-toastify";
 
 // import styles from "@/styles/account/login/Login.module.scss";
 import styles from "@/styles/pages/auth.module.scss";
-import Input from "@/components/ui/Inputs/Input";
+import Input from "@/components/ui/inputs/Input";
+import Button from "@/components/ui/buttons/Button";
 //  import inputStyles from "@/styles/components/input.module.scss";
 
 export default function ForgotPasswordPage() {
@@ -76,9 +77,12 @@ export default function ForgotPasswordPage() {
           />
         </div>
 
-        <button type="submit" disabled={loading} className={styles.authButton}>
+        {/* <button type="submit" disabled={loading} className={styles.authButton}>
           {loading ? "Enviando..." : "Enviar link"}
-        </button>
+        </button> */}
+        <Button type="submit" loading={loading} fullWidth>
+          Enviar link
+        </Button>
 
         <p className={styles.authHelper}>
           <a href="/login">Voltar ao login</a>

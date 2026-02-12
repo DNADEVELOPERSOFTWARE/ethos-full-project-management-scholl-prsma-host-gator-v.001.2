@@ -209,39 +209,7 @@
 }
 
 
-/* ================= BUTTON ================= */
 
-.authButton {
-  margin-top: 1.25rem;
-
-  width: 100%;
-  background: #fb5;
-  color: c.$bl11;
-
-  border: none;
-  border-radius: 12px;
-
-  padding: 0.9rem;
-
-  font-weight: 700;
-  font-size: 0.95rem;
-  text-transform: uppercase;
-
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(251, 187, 85, 0.35);
-  }
-
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    box-shadow: none;
-    transform: none;
-  }
-}
 
 /* ================= RESPONSIVE ================= */
 

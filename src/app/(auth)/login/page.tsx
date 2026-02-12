@@ -19,7 +19,8 @@ import { useState } from "react";
 
 // import styles from "@/styles/account/login/Login.module.scss";
 import styles from "@/styles/pages/auth.module.scss";
-import Input from "@/components/ui/Inputs/Input";
+import Input from "@/components/ui/inputs/Input";
+import Button from "@/components/ui/buttons/Button";
 // import inputStyles from "@/styles/components/input.module.scss";
 
 const LoginPage = () => {
@@ -120,7 +121,6 @@ const LoginPage = () => {
         <h2 className={styles.authSubtitle}>Entre com sua conta</h2>
 
         {error && <p className={styles.authError}>{error}</p>}
-        
 
         <div className={styles.field}>
           <Input
@@ -132,7 +132,6 @@ const LoginPage = () => {
             placeholder="ex: admin"
           />
 
-          
           {/* <label className={`${styles.label}`}>Nome de usuário</label> */}
           {/* <input
             className={`${styles.input} ${inputStyles.input}`}
@@ -164,9 +163,12 @@ const LoginPage = () => {
           /> */}
         </div>
 
-        <button type="submit" disabled={loading} className={styles.authButton}>
+        {/* <button type="submit" disabled={loading} className={styles.authButton}>
           {loading ? "Entrando..." : "Entrar"}
-        </button>
+        </button> */}
+        <Button type="submit" loading={loading} fullWidth>
+          Entrar
+        </Button>
         <p className={styles.authHelper}>
           <a href="/forgot-password">Esqueceu sua senha?</a>
         </p>

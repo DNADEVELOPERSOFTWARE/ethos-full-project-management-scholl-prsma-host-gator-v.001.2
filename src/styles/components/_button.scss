@@ -1,0 +1,88 @@
+@use "@/styles/abstracts/variables" as *;
+
+@mixin button-base {
+  padding: 0.9rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+@mixin button-primary {
+  background: $ethos-gold;
+  color: $bl11; // usa seu token
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba($ethos-gold, 0.35);
+  }
+}
+
+
+@mixin button-secondary {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+
+  &:hover:not(:disabled) {
+    background: var(--hover-bg);
+  }
+}
+
+@mixin button-ghost {
+  background: transparent;
+  color: $ethos-gold;
+
+  &:hover:not(:disabled) {
+    background: rgba($ethos-gold, 0.1);
+  }
+}
+
+
+
+// .button {
+//   width: 100%;
+
+//   background: var(--accent-primary);
+//   color: var(--button-text);
+
+//   border: none;
+//   border-radius: 12px;
+
+//   padding: 0.9rem;
+
+//   font-weight: 600;
+//   font-size: 0.95rem;
+//   text-transform: uppercase;
+
+//   cursor: pointer;
+//   transition: all 0.2s ease;
+// }
+
+// .button:hover {
+//   transform: translateY(-2px);
+//   box-shadow: 0 10px 20px rgba(242, 184, 75, 0.3);
+// }
+
+// .button:disabled {
+//   opacity: 0.6;
+//   cursor: not-allowed;
+//   transform: none;
+//   box-shadow: none;
+// }

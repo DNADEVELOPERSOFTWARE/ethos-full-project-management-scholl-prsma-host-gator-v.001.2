@@ -17,7 +17,8 @@ import { useState } from "react";
 
 import AuthLayout from "@/components/layouts/authLayout/AuthLayout";
 import styles from "@/styles/pages/auth.module.scss";
-import Input from "@/components/ui/Inputs/Input";
+import Input from "@/components/ui/inputs/Input";
+import Button from "@/components/ui/buttons/Button";
 
 // import inputStyles from "@/styles/components/input.module.scss";
 
@@ -170,13 +171,16 @@ export default function RegisterPage() {
               /> */}
             </div>
 
-            <button
+            {/* <button
               type="submit"
               disabled={loading}
               className={styles.authButton}
             >
               {loading ? "Criando..." : "Criar usuário"}
-            </button>
+            </button> */}
+            <Button type="submit" loading={loading} fullWidth>
+              Criar usuário
+            </Button>
           </form>
         </>
       )}
