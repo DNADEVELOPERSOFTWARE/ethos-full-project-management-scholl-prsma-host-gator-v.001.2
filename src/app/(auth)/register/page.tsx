@@ -17,7 +17,9 @@ import { useState } from "react";
 
 import AuthLayout from "@/components/layouts/authLayout/AuthLayout";
 import styles from "@/styles/pages/auth.module.scss";
-import inputStyles from "@/styles/components/input.module.scss";
+import Input from "@/components/ui/Inputs/Input";
+
+// import inputStyles from "@/styles/components/input.module.scss";
 
 const USE_CLERK = false; // 🔥 Alterar para true quando religar Clerk
 
@@ -91,47 +93,81 @@ export default function RegisterPage() {
           {error && <p className={styles.error}>{error}</p>}
 
           <form onSubmit={handleRegister} className={styles.form}>
-            <div className={inputStyles.field}>
-              <label className={`${styles.label} ${inputStyles.label}`}>Nome completo</label>
-              <input className={`${styles.input} ${inputStyles.input}`}
+            <div className={styles.field}>
+              <Input
+                label="Nome completo"
                 type="text"
                 placeholder="Administrador"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
               />
+              {/* <label className={`${styles.label} ${inputStyles.label}`}>Nome completo</label>
+              <input className={`${styles.input} ${inputStyles.input}`}
+                type="text"
+                placeholder="Administrador"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              /> */}
             </div>
 
-            <div className={inputStyles.field}>
-              <label className={`${styles.label} ${inputStyles.label}`}>Usuário</label>
-              <input className={`${styles.input} ${inputStyles.input}`}
+            <div className={styles.field}>
+                <Input  
+                label="Usuário" 
                 type="text"
                 placeholder="admin"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
               />
+               {/*
+              {/* <label className={`${styles.label} ${inputStyles.label}`}>Usuário</label>
+              <input className={`${styles.input} ${inputStyles.input}`}
+                type="text"
+                placeholder="admin"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              /> */}
             </div>
 
-            <div className={inputStyles.field}>
-              <label className={`${styles.label} ${inputStyles.label}`}>Email</label>
+            <div className={styles.field}>
+              <Input  
+                label="Email"
+                type="email"
+                placeholder="admin@ethos.com" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+               {/*
+              {/* <label className={`${styles.label} ${inputStyles.label}`}>Email</label>
               <input className={`${styles.input} ${inputStyles.input}`}
                 type="email"
                 placeholder="admin@ethos.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-              />
+              /> */}
             </div>
 
-            <div className={inputStyles.field}>
-              <label className={`${styles.label} ${inputStyles.label}`}>Senha</label>
-              <input className={`${styles.input} ${inputStyles.input}`}
+            <div className={styles.field}>
+              <Input
+                label="Senha"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+               {/*
+              {/* <label className={`${styles.label} ${inputStyles.label}`}>Senha</label>
+              <input className={`${styles.input} ${inputStyles.input}`}
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              /> */}
             </div>
 
             <button

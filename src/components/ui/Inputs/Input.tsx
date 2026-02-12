@@ -1,5 +1,5 @@
-// import styles from "./input.module.scss";
-import styles from "@/styles/components/input.module.scss";
+import styles from "./input.module.scss";
+// import styles from "@/styles/components/input.module.scss";
 
 import { InputHTMLAttributes } from "react";
 

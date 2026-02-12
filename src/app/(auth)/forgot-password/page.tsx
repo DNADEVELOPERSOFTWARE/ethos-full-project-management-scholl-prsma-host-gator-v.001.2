@@ -6,7 +6,8 @@ import { toast } from "react-toastify";
 
 // import styles from "@/styles/account/login/Login.module.scss";
 import styles from "@/styles/pages/auth.module.scss";
-import inputStyles from "@/styles/components/input.module.scss";
+import Input from "@/components/ui/Inputs/Input";
+//  import inputStyles from "@/styles/components/input.module.scss";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -55,15 +56,23 @@ export default function ForgotPasswordPage() {
           Informe seu email para receber o link de redefinição de senha
         </p>
 
-        <div className={inputStyles.field}>
-          <label className={`${styles.label} ${inputStyles.label}`}>Email</label>
+        <div className={styles.field}>
+          {/* <label className={styles.label  }>Email</label>
           <input
-            className={`${styles.input} ${inputStyles.input}`}  
+          label=
+            className={styles.input}    
             type="email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="seu@email.com"
+          /> */}
+          <Input
+            label="Email"
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
