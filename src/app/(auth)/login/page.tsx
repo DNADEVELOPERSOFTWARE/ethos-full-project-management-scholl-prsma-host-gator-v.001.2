@@ -19,7 +19,8 @@ import { useState } from "react";
 
 // import styles from "@/styles/account/login/Login.module.scss";
 import styles from "@/styles/pages/auth.module.scss";
-import inputStyles from "@/styles/components/input.module.scss";
+import Input from "@/components/ui/Inputs/Input";
+// import inputStyles from "@/styles/components/input.module.scss";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -119,28 +120,48 @@ const LoginPage = () => {
         <h2 className={styles.authSubtitle}>Entre com sua conta</h2>
 
         {error && <p className={styles.authError}>{error}</p>}
+        
 
-        <div className={inputStyles.field}>
-          <label className={`${styles.label} ${inputStyles.label}`}>Nome de usuário</label>
-          <input
-            className={`${styles.input} ${inputStyles.input}`}
+        <div className={styles.field}>
+          <Input
+            label="Nome de usuário"
             type="text"
             required
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder="ex: admin"
           />
+
+          
+          {/* <label className={`${styles.label}`}>Nome de usuário</label> */}
+          {/* <input
+            className={`${styles.input} ${inputStyles.input}`}
+            type="text"
+            required
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="ex: admin"
+          /> */}
         </div>
 
-        <div className={inputStyles.field}>
-          <label className={`${styles.label} ${inputStyles.label}`}>Senha</label>
-          <input
-            className={`${styles.input} ${inputStyles.input}`}
+        <div className={styles.field}>
+          <Input
+            label="Senha"
             type="password"
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          {/* <label className={`${styles.label} ${inputStyles.label}`}>
+            Senha
+          </label> */}
+          {/* <input
+            className={`${styles.input} ${inputStyles.input}`}
+            type="password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          /> */}
         </div>
 
         <button type="submit" disabled={loading} className={styles.authButton}>
