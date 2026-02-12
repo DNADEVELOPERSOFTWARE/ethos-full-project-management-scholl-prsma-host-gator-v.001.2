@@ -3,36 +3,37 @@
 /**
  * ================================
  * 🔁 CLERK (DESATIVADO TEMPORARIAMENTE)
- * Quando voltar a usar Clerk:
- * 1) Descomente os imports abaixo
- * 2) Comente a lógica de auth local
+ * Para reativar:
+ * 1) Descomente os imports
+ * 2) Altere USE_CLERK para true
  * ================================
  */
 
 // import * as Clerk from "@clerk/elements/common";
 // import * as SignUp from "@clerk/elements/sign-up";
 
-import styles from "@/styles/pages/auth.module.scss";
-import inputStyles from "@/styles/components/input.module.scss";
-
-
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import AuthLayout from "@/components/layouts/authLayout/AuthLayout";
+import styles from "@/styles/pages/auth.module.scss";
+import inputStyles from "@/styles/components/input.module.scss";
 
-const RegisterPage = () => {
+const USE_CLERK = false; // 🔥 Alterar para true quando religar Clerk
+
+export default function RegisterPage() {
   const router = useRouter();
 
   /**
    * ================================
-   * 🔐 AUTH LOCAL (ATIVO)
+   * 🔐 AUTH LOCAL
    * ================================
    */
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -50,7 +51,7 @@ const RegisterPage = () => {
           username,
           email,
           password,
-          role: "admin", // 🔥 SUPERUSUÁRIO
+          role: "admin",
         }),
       });
 
@@ -69,23 +70,24 @@ const RegisterPage = () => {
   };
 
   return (
-    <section className={styles.registerSection}>
-      <div className={styles.registerContainer}>
-        <div className={styles.card}>
-          <header className={styles.header}>
-            <Image
-              src="/logo-ETHOS.png"
-              alt="ETHOS"
-              width={42}
-              height={42}
-              priority
-            />
-            <h1>
-              Criar <span>Superusuário</span>
-            </h1>
-            <p>Acesso administrativo ao sistema</p>
-          </header>
-
+    <AuthLayout
+      title="Criar Superusuário"
+      subtitle="Acesso administrativo ao sistema"
+    >
+      {USE_CLERK ? (
+        /* ================= CLERK ================= */
+        <div>
+          {/* 
+          <SignUp.Root>
+            <SignUp.Step name="start">
+              ...
+            </SignUp.Step>
+          </SignUp.Root>
+          */}
+        </div>
+      ) : (
+        /* ================= AUTH LOCAL ================= */
+        <>
           {error && <p className={styles.error}>{error}</p>}
 
           <form onSubmit={handleRegister} className={styles.form}>
@@ -110,6 +112,7 @@ const RegisterPage = () => {
                 required
               />
             </div>
+
             <div className={inputStyles.field}>
               <label>Email</label>
               <input
@@ -131,25 +134,16 @@ const RegisterPage = () => {
               />
             </div>
 
-            <button type="submit" disabled={loading}>
+            <button
+              type="submit"
+              disabled={loading}
+              className={styles.authButton}
+            >
               {loading ? "Criando..." : "Criar usuário"}
             </button>
           </form>
-        </div>
-      </div>
-
-      {/* ================================
-           🔁 CLERK SIGN-UP (DESATIVADO)
-         ================================ */}
-      {/*
-      <SignUp.Root>
-        <SignUp.Step name="start">
-          ...
-        </SignUp.Step>
-      </SignUp.Root>
-      */}
-    </section>
+        </>
+      )}
+    </AuthLayout>
   );
-};
-
-export default RegisterPage;
+}

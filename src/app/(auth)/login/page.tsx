@@ -107,19 +107,19 @@ const LoginPage = () => {
   */
 
   return (
-    <div className={styles.loginPage}>
+    <div className={styles.authPage}>
       {/* ================================
        🔐 LOGIN LOCAL (ATIVO)
      ================================ */}
-      <form onSubmit={handleLogin} className={styles.loginCard}>
-        <h1 className={styles.loginHeader}>
+      <form onSubmit={handleLogin} className={styles.authCard}>
+        <h1 className={styles.authHeader}>
           <Image src="/logo-ETHOS.png" alt="Logo" width={24} height={24} />
           ETHOS CPAC
         </h1>
 
-        <h2 className={styles.loginSubtitle}>Entre com sua conta</h2>
+        <h2 className={styles.authSubtitle}>Entre com sua conta</h2>
 
-        {error && <p className={styles.loginError}>{error}</p>}
+        {error && <p className={styles.authError}>{error}</p>}
 
         <div className={inputStyles.field}>
           <label>Nome de usuário</label>
@@ -142,10 +142,10 @@ const LoginPage = () => {
           />
         </div>
 
-        <button type="submit" disabled={loading} className={styles.loginButton}>
+        <button type="submit" disabled={loading} className={styles.authButton}>
           {loading ? "Entrando..." : "Entrar"}
         </button>
-        <p className={styles.loginHelper}>
+        <p className={styles.authHelper}>
           <a href="/forgot-password">Esqueceu sua senha?</a>
         </p>
       </form>

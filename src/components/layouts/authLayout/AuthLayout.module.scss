@@ -1,5 +1,12 @@
 @use "@/styles/abstracts/variables" as v;
 
+.authPage {
+  @extend .authPage;
+}
+
+.authCard {
+  @extend .authCard;
+}
 .authLayout {
   min-height: 100vh;
   padding: 6rem 2rem;

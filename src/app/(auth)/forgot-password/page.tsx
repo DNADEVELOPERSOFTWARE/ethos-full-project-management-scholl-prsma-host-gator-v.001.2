@@ -42,14 +42,14 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className={styles.loginPage}>
-      <form onSubmit={handleSubmit} className={styles.loginCard}>
-        <h1 className={styles.loginHeader}>
+    <div className={styles.authPage}>
+      <form onSubmit={handleSubmit} className={styles.authCard}>
+        <h1 className={styles.authHeader}>
           <Image src="/logo-ETHOS.png" alt="Logo" width={24} height={24} />
           ETHOS CPAC
         </h1>
 
-        <h2 className={styles.loginSubtitle}>Recuperar senha</h2>
+        <h2 className={styles.authSubtitle}>Recuperar senha</h2>
 
         <p style={{ fontSize: 14, textAlign: "center", opacity: 0.8 }}>
           Informe seu email para receber o link de redefinição de senha
@@ -66,11 +66,11 @@ export default function ForgotPasswordPage() {
           />
         </div>
 
-        <button type="submit" disabled={loading} className={styles.loginButton}>
+        <button type="submit" disabled={loading} className={styles.authButton}>
           {loading ? "Enviando..." : "Enviar link"}
         </button>
 
-        <p className={styles.loginHelper}>
+        <p className={styles.authHelper}>
           <a href="/login">Voltar ao login</a>
         </p>
       </form>

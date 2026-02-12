@@ -124,44 +124,10 @@
   }
 }
 
-/* ================================
-   FIELD
-================================ */
 
-.field {
-  display: flex;
-  flex-direction: column;
-
-  label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #e5e7eb;
-    margin-bottom: 0.35rem;
-  }
-
-  input {
-    background: #020617;
-    border: 1px solid #334155;
-    border-radius: 10px;
-    padding: 0.7rem 0.85rem;
-    color: white;
-    font-size: 0.95rem;
-    transition: all 0.25s ease;
-
-    &::placeholder {
-      color: #64748b;
-    }
-
-    &:focus {
-      outline: none;
-      border-color: #fb5;
-      box-shadow: 0 0 0 2px rgba(251, 187, 85, 0.25);
-    }
-  }
-}
 /* ================= LOGIN PAGE ================= */
 
-.loginPage {
+.authPage {
   min-height: 100vh;
   padding: 6rem 2rem;
 
@@ -173,13 +139,13 @@
   position: relative;
 }
 
-.loginPage > * {
+.authPage > * {
   position: relative;
   z-index: 1;
 }
 
 /* Background icon */
-.loginPage::before {
+.authPage::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -198,7 +164,7 @@
 
 /* ================= LOGIN CARD ================= */
 
-.loginCard {
+.authCard {
   width: 100%;
   max-width: 380px;
 
@@ -217,7 +183,7 @@
 
 /* ================= HEADER ================= */
 
-.loginHeader {
+.authHeader {
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -227,59 +193,25 @@
   color: white;
 }
 
-.loginSubtitle {
-  font-size: 0.95rem;
-  color: #cbd5f5;
+.authSubtitle {
+  color: #9fb4d6;
   margin-bottom: 0.5rem;
+
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 /* ================= ERROR ================= */
 
-.loginError {
+.authError {
   font-size: 0.85rem;
   color: #f87171;
 }
 
-// /* ================= FIELDS ================= */
-
-// .field {
-//   display: flex;
-//   flex-direction: column;
-//   gap: 0.35rem;
-
-//   label {
-//     font-size: 0.8rem;
-//     font-weight: 600;
-//     color: #e5e7eb;
-//   }
-
-//   input {
-//     background: c.$bl11;
-//     border: 1px solid c.$bl09;
-//     border-radius: 10px;
-
-//     padding: 0.75rem 0.85rem;
-
-//     color: white;
-//     font-size: 0.95rem;
-
-//     transition: all 0.25s ease;
-
-//     &::placeholder {
-//       color: #64748b;
-//     }
-
-//     &:focus {
-//       outline: none;
-//       border-color: c.$bl01;
-//       box-shadow: 0 0 0 2px rgba(251, 187, 85, 0.25);
-//     }
-//   }
-// }
 
 /* ================= BUTTON ================= */
 
-.loginButton {
+.authButton {
   margin-top: 1.25rem;
 
   width: 100%;
@@ -314,11 +246,11 @@
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 1024px) {
-  .loginPage {
+  .authPage {
     padding: 5rem 2rem;
   }
 
-  .loginPage::before {
+  .authPage::before {
     background-position: center bottom -90px;
     background-size: 360px;
     opacity: 0.02;
@@ -326,31 +258,31 @@
 }
 
 @media (max-width: 768px) {
-  .loginPage {
+  .authPage {
     padding: 4rem 1.5rem;
   }
 
-  .loginCard {
+  .authCard {
     padding: 2.25rem 2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .loginPage::before {
+  .authPage::before {
     background-size: 220px;
     background-position: center bottom -50px;
     opacity: 0.015;
   }
 
-  .loginCard {
+  .authCard {
     padding: 2rem 1.5rem;
   }
 
-  .loginHeader {
+  .authHeader {
     font-size: 1.15rem;
   }
 
-  .loginButton {
+  .authButton {
     font-size: 0.9rem;
     padding: 0.85rem;
   }

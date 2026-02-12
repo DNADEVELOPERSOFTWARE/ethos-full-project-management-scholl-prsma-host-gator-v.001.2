@@ -68,18 +68,18 @@ export default function ResetPasswordClient() {
   // 🚫 Token inválido
   if (!token) {
     return (
-      <div className={styles.loginPage}>
-        <div className={styles.loginCard}>
-          <h2 className={styles.loginSubtitle}>Token inválido ou expirado</h2>
+      <div className={styles.authPage}>
+        <div className={styles.authCard}>
+          <h2 className={styles.authSubtitle}>Token inválido ou expirado</h2>
         </div>
       </div>
     );
   }
 
   return (
-    <div className={styles.loginPage}>
-      <form onSubmit={handleSubmit} className={styles.loginCard}>
-        <h2 className={styles.loginSubtitle}>Redefinir senha</h2>
+    <div className={styles.authPage}>
+      <form onSubmit={handleSubmit} className={styles.authCard}>
+        <h2 className={styles.authSubtitle}>Redefinir senha</h2>
 
         <div className={styles.field}>
           <label>Nova senha</label>
@@ -101,7 +101,7 @@ export default function ResetPasswordClient() {
           />
         </div>
 
-        <button type="submit" className={styles.loginButton} disabled={loading}>
+        <button type="submit" className={styles.authButton} disabled={loading}>
           {loading ? "Processando..." : "Redefinir senha"}
         </button>
       </form>
