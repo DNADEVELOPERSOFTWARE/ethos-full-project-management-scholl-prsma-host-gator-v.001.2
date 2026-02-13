@@ -1,0 +1,36 @@
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.error {
+  background: rgba(255, 0, 0, 0.08);
+  color: #ff4d4f;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.helper {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+
+  a {
+    color: #fb5;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

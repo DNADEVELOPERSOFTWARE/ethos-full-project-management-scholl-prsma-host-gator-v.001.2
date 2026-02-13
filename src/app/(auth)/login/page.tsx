@@ -1,36 +1,15 @@
 "use client";
 
-/**
- * ================================
- * 🔁 CLERK (DESATIVADO TEMPORARIAMENTE)
- * Quando voltar a usar Clerk:
- * 1) Descomente os imports abaixo
- * 2) Comente a lógica de auth local
- * ================================
- */
-
-// import * as Clerk from "@clerk/elements/common";
-// import * as SignIn from "@clerk/elements/sign-in";
-// import { useUser } from "@clerk/nextjs";
-
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-// import styles from "@/styles/account/login/Login.module.scss";
-import styles from "@/styles/pages/auth.module.scss";
+import styles from "./login.module.scss"; // novo CSS local da página
 import Input from "@/components/ui/inputs/Input";
 import Button from "@/components/ui/buttons/Button";
-import stylesCard from "@/styles/components/card.module.scss";
 
 const LoginPage = () => {
   const router = useRouter();
 
-  /**
-   * ================================
-   * 🔐 AUTH LOCAL (ATIVO)
-   * ================================
-   */
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -57,25 +36,12 @@ const LoginPage = () => {
         return;
       }
 
-      /**
-       * 🔐 Cookie de sessão já foi setado no backend
-       * Backend retorna:
-       * {
-       *   id: string,
-       *   username: string,
-       *   role: "ADMIN" | "TEACHER" | "STUDENT" | "PARENT"
-       * }
-       */
-
       if (!data?.role) {
         setError("Role do usuário não encontrada");
         return;
       }
 
-      // 🔑 NORMALIZA ROLE (regra única do projeto)
       const role = data.role.toLowerCase();
-
-      // 🔁 Redirecionamento seguro (SEM loop)
       router.replace(`/${role}`);
     } catch (err) {
       console.error("🔥 [LOGIN_ERROR]", err);
@@ -85,82 +51,210 @@ const LoginPage = () => {
     }
   };
 
-  /**
-   * ================================
-   * 🔁 CLERK REDIRECT (DESATIVADO)
-   * ================================
-   */
-  /*
-  const { isLoaded, isSignedIn, user } = useUser();
-
-  useEffect(() => {
-    if (!isLoaded) return;
-    if (!isSignedIn) return;
-
-    const role = user?.publicMetadata?.role;
-
-    if (role) {
-      router.replace(`/${role.toLowerCase()}`);
-    } else {
-      router.replace("/");
-    }
-  }, [isLoaded, isSignedIn, user, router]);
-  */
-
   return (
-    <div className={styles.authPage}>
-      {/* ================================
-       🔐 LOGIN LOCAL (ATIVO)
-     ================================ */}
-      <form onSubmit={handleLogin} className={stylesCard.card}>
-        <h1 className={styles.authHeader}>
-          <Image src="/logo-ETHOS.png" alt="Logo" width={24} height={24} />
-          ETHOS CPAC
-        </h1>
+    <>
+      <h2 className={styles.subtitle}>Entre com sua conta</h2>
 
-        <h2 className={styles.authSubtitle}>Entre com sua conta</h2>
+      {error && <p className={styles.error}>{error}</p>}
 
-        {error && <p className={styles.authError}>{error}</p>}
+      <form onSubmit={handleLogin} className={styles.form}>
+        <Input
+          label="Nome de usuário"
+          type="text"
+          required
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="ex: admin"
+        />
 
-        <div className={styles.field}>
-          <Input
-            label="Nome de usuário"
-            type="text"
-            required
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="ex: admin"
-          />
-        </div>
+        <Input
+          label="Senha"
+          type="password"
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-        <div className={styles.field}>
-          <Input
-            label="Senha"
-            type="password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-
-        <Button type="submit" loading={loading} fullWidth marginTop>
+        <Button type="submit" loading={loading} fullWidth>
           {loading ? "Entrando..." : "Entrar"}
         </Button>
-        <p className={styles.authHelper}>
+
+        <p className={styles.helper}>
           <a href="/forgot-password">Esqueceu sua senha?</a>
         </p>
       </form>
-
-      {/* ================================
-       🔁 CLERK UI (DESATIVADO)
-     ================================ */}
-      {/*
-  <SignIn.Root>
-    <SignIn.Step name="start">...</SignIn.Step>
-  </SignIn.Root>
-  */}
-    </div>
+    </>
   );
 };
 
 export default LoginPage;
+
+
+
+
+// "use client";
+
+// /**
+//  * ================================
+//  * 🔁 CLERK (DESATIVADO TEMPORARIAMENTE)
+//  * Quando voltar a usar Clerk:
+//  * 1) Descomente os imports abaixo
+//  * 2) Comente a lógica de auth local
+//  * ================================
+//  */
+
+// // import * as Clerk from "@clerk/elements/common";
+// // import * as SignIn from "@clerk/elements/sign-in";
+// // import { useUser } from "@clerk/nextjs";
+
+// import Image from "next/image";
+// import { useRouter } from "next/navigation";
+// import { useState } from "react";
+
+// // import styles from "@/styles/account/login/Login.module.scss";
+// import styles from "@/styles/pages/auth.module.scss";
+// import Input from "@/components/ui/inputs/Input";
+// import Button from "@/components/ui/buttons/Button";
+// import stylesCard from "@/styles/components/card.module.scss";
+
+// const LoginPage = () => {
+//   const router = useRouter();
+
+//   /**
+//    * ================================
+//    * 🔐 AUTH LOCAL (ATIVO)
+//    * ================================
+//    */
+//   const [username, setUsername] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [error, setError] = useState("");
+//   const [loading, setLoading] = useState(false);
+
+//   const handleLogin = async (e: React.FormEvent) => {
+//     e.preventDefault();
+//     if (loading) return;
+
+//     setError("");
+//     setLoading(true);
+
+//     try {
+//       const res = await fetch("/api/auth/login", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({ username, password }),
+//       });
+
+//       const data = await res.json();
+
+//       if (!res.ok) {
+//         setError(data?.error || "Usuário ou senha inválidos");
+//         return;
+//       }
+
+//       /**
+//        * 🔐 Cookie de sessão já foi setado no backend
+//        * Backend retorna:
+//        * {
+//        *   id: string,
+//        *   username: string,
+//        *   role: "ADMIN" | "TEACHER" | "STUDENT" | "PARENT"
+//        * }
+//        */
+
+//       if (!data?.role) {
+//         setError("Role do usuário não encontrada");
+//         return;
+//       }
+
+//       // 🔑 NORMALIZA ROLE (regra única do projeto)
+//       const role = data.role.toLowerCase();
+
+//       // 🔁 Redirecionamento seguro (SEM loop)
+//       router.replace(`/${role}`);
+//     } catch (err) {
+//       console.error("🔥 [LOGIN_ERROR]", err);
+//       setError("Erro ao tentar fazer login");
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   /**
+//    * ================================
+//    * 🔁 CLERK REDIRECT (DESATIVADO)
+//    * ================================
+//    */
+//   /*
+//   const { isLoaded, isSignedIn, user } = useUser();
+
+//   useEffect(() => {
+//     if (!isLoaded) return;
+//     if (!isSignedIn) return;
+
+//     const role = user?.publicMetadata?.role;
+
+//     if (role) {
+//       router.replace(`/${role.toLowerCase()}`);
+//     } else {
+//       router.replace("/");
+//     }
+//   }, [isLoaded, isSignedIn, user, router]);
+//   */
+
+//   return (
+//     <div className={styles.authPage}>
+//       {/* ================================
+//        🔐 LOGIN LOCAL (ATIVO)
+//      ================================ */}
+//       <form onSubmit={handleLogin} className={stylesCard.card}>
+//         <h1 className={styles.authHeader}>
+//           <Image src="/logo-ETHOS.png" alt="Logo" width={24} height={24} />
+//           ETHOS CPAC
+//         </h1>
+
+//         <h2 className={styles.authSubtitle}>Entre com sua conta</h2>
+
+//         {error && <p className={styles.authError}>{error}</p>}
+
+//         <div className={styles.field}>
+//           <Input
+//             label="Nome de usuário"
+//             type="text"
+//             required
+//             value={username}
+//             onChange={(e) => setUsername(e.target.value)}
+//             placeholder="ex: admin"
+//           />
+//         </div>
+
+//         <div className={styles.field}>
+//           <Input
+//             label="Senha"
+//             type="password"
+//             required
+//             value={password}
+//             onChange={(e) => setPassword(e.target.value)}
+//           />
+//         </div>
+
+//         <Button type="submit" loading={loading} fullWidth marginTop>
+//           {loading ? "Entrando..." : "Entrar"}
+//         </Button>
+//         <p className={styles.authHelper}>
+//           <a href="/forgot-password">Esqueceu sua senha?</a>
+//         </p>
+//       </form>
+
+//       {/* ================================
+//        🔁 CLERK UI (DESATIVADO)
+//      ================================ */}
+//       {/*
+//   <SignIn.Root>
+//     <SignIn.Step name="start">...</SignIn.Step>
+//   </SignIn.Root>
+//   */}
+//     </div>
+//   );
+// };
+
+// export default LoginPage;

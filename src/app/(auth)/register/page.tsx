@@ -1,35 +1,17 @@
 "use client";
 
-/**
- * ================================
- * 🔁 CLERK (DESATIVADO TEMPORARIAMENTE)
- * Para reativar:
- * 1) Descomente os imports
- * 2) Altere USE_CLERK para true
- * ================================
- */
-
-// import * as Clerk from "@clerk/elements/common";
-// import * as SignUp from "@clerk/elements/sign-up";
-
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import AuthLayout from "@/components/layouts/authLayout/AuthLayout";
-import styles from "@/styles/pages/auth.module.scss";
+import styles from "./register.module.scss";
 import Input from "@/components/ui/inputs/Input";
 import Button from "@/components/ui/buttons/Button";
 
-const USE_CLERK = false; // 🔥 Alterar para true quando religar Clerk
+const USE_CLERK = false;
 
 export default function RegisterPage() {
   const router = useRouter();
 
-  /**
-   * ================================
-   * 🔐 AUTH LOCAL
-   * ================================
-   */
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -71,76 +53,206 @@ export default function RegisterPage() {
   };
 
   return (
-    <AuthLayout
-      title="Criar Superusuário"
-      subtitle="Acesso administrativo ao sistema"
-    >
+    <>
+      <h2 className={styles.subtitle}>Criar SUPERUSUÁRIO</h2>
+
       {USE_CLERK ? (
-        /* ================= CLERK ================= */
-        <div>
-          {/* 
-          <SignUp.Root>
-            <SignUp.Step name="start">
-              ...
-            </SignUp.Step>
-          </SignUp.Root>
-          */}
-        </div>
+        <div>{/* Clerk futuramente */}</div>
       ) : (
-        /* ================= AUTH LOCAL ================= */
         <>
           {error && <p className={styles.error}>{error}</p>}
 
           <form onSubmit={handleRegister} className={styles.form}>
-            <div className={styles.field}>
-              <Input
-                label="Nome completo"
-                type="text"
-                placeholder="Administrador"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </div>
+            <Input
+              label="Nome completo"
+              type="text"
+              placeholder="Administrador"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
 
-            <div className={styles.field}>
-              <Input
-                label="Usuário"
-                type="text"
-                placeholder="admin"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              />
-            </div>
+            <Input
+              label="Usuário"
+              type="text"
+              placeholder="admin"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
 
-            <div className={styles.field}>
-              <Input
-                label="Email"
-                type="email"
-                placeholder="admin@ethos.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
+            <Input
+              label="Email"
+              type="email"
+              placeholder="admin@ethos.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
 
-            <div className={styles.field}>
-              <Input
-                label="Senha"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
+            <Input
+              label="Senha"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
 
-            <Button type="submit" loading={loading} fullWidth marginTop>
+            <Button type="submit" loading={loading} fullWidth>
               {loading ? "Criando..." : "Criar usuário"}
             </Button>
           </form>
         </>
       )}
-    </AuthLayout>
+    </>
   );
 }
+
+
+
+// "use client";
+
+// /**
+//  * ================================
+//  * 🔁 CLERK (DESATIVADO TEMPORARIAMENTE)
+//  * Para reativar:
+//  * 1) Descomente os imports
+//  * 2) Altere USE_CLERK para true
+//  * ================================
+//  */
+
+// // import * as Clerk from "@clerk/elements/common";
+// // import * as SignUp from "@clerk/elements/sign-up";
+
+// import { useRouter } from "next/navigation";
+// import { useState } from "react";
+
+// import AuthLayout from "@/components/layouts/authLayout/AuthLayout";
+// import styles from "@/styles/pages/auth.module.scss";
+// import Input from "@/components/ui/inputs/Input";
+// import Button from "@/components/ui/buttons/Button";
+
+// const USE_CLERK = false; // 🔥 Alterar para true quando religar Clerk
+
+// export default function RegisterPage() {
+//   const router = useRouter();
+
+//   /**
+//    * ================================
+//    * 🔐 AUTH LOCAL
+//    * ================================
+//    */
+//   const [name, setName] = useState("");
+//   const [username, setUsername] = useState("");
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+
+//   const [error, setError] = useState("");
+//   const [loading, setLoading] = useState(false);
+
+//   const handleRegister = async (e: React.FormEvent) => {
+//     e.preventDefault();
+//     setError("");
+//     setLoading(true);
+
+//     try {
+//       const res = await fetch("/api/auth/register", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({
+//           name,
+//           username,
+//           email,
+//           password,
+//           role: "admin",
+//         }),
+//       });
+
+//       if (!res.ok) {
+//         const data = await res.json();
+//         setError(data?.message || "Erro ao criar usuário");
+//         return;
+//       }
+
+//       router.push("/login");
+//     } catch {
+//       setError("Erro inesperado ao criar usuário");
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   return (
+    
+//     <AuthLayout>
+    
+      
+//       {USE_CLERK ? (
+//         /* ================= CLERK ================= */
+//         <div>
+//           {/* 
+//           <SignUp.Root>
+//             <SignUp.Step name="start">
+//               ...
+//             </SignUp.Step>
+//           </SignUp.Root>
+//           */}
+//         </div>
+//       ) : (
+//         /* ================= AUTH LOCAL ================= */
+//         <>
+//           {error && <p className={styles.error}>{error}</p>}
+
+//           <form onSubmit={handleRegister} className={styles.form}>
+//             <div className={styles.field}>
+//               <Input
+//                 label="Nome completo"
+//                 type="text"
+//                 placeholder="Administrador"
+//                 value={name}
+//                 onChange={(e) => setName(e.target.value)}
+//                 required
+//               />
+//             </div>
+
+//             <div className={styles.field}>
+//               <Input
+//                 label="Usuário"
+//                 type="text"
+//                 placeholder="admin"
+//                 value={username}
+//                 onChange={(e) => setUsername(e.target.value)}
+//                 required
+//               />
+//             </div>
+
+//             <div className={styles.field}>
+//               <Input
+//                 label="Email"
+//                 type="email"
+//                 placeholder="admin@ethos.com"
+//                 value={email}
+//                 onChange={(e) => setEmail(e.target.value)}
+//                 required
+//               />
+//             </div>
+
+//             <div className={styles.field}>
+//               <Input
+//                 label="Senha"
+//                 type="password"
+//                 value={password}
+//                 onChange={(e) => setPassword(e.target.value)}
+//                 required
+//               />
+//             </div>
+
+//             <Button type="submit" loading={loading} fullWidth marginTop>
+//               {loading ? "Criando..." : "Criar usuário"}
+//             </Button>
+//           </form>
+//         </>
+//       )}
+//     </AuthLayout>
+//   );
+// }
