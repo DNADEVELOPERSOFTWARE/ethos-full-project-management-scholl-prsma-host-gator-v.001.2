@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import styles from "@/styles/pages/auth.module.scss";
 import Input from "@/components/ui/inputs/Input";
 import Button from "@/components/ui/buttons/Button";
-//  import inputStyles from "@/styles/components/input.module.scss";
+import stylesCard from "@/styles/components/card.module.scss";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -45,7 +45,7 @@ export default function ForgotPasswordPage() {
 
   return (
     <div className={styles.authPage}>
-      <form onSubmit={handleSubmit} className={styles.authCard}>
+      <form onSubmit={handleSubmit} className={stylesCard.card}>
         <h1 className={styles.authHeader}>
           <Image src="/logo-ETHOS.png" alt="Logo" width={24} height={24} />
           ETHOS CPAC

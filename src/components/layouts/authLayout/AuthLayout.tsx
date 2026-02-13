@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import styles from "@/styles/pages/auth.module.scss";
+import stylesCard from "@/styles/components/card.module.scss";
+
 
 type AuthLayoutProps = {
   title: string;
@@ -16,7 +18,7 @@ export default function AuthLayout({
 }: AuthLayoutProps) {
   return (
     <section className={styles.authPage}>
-      <div className={styles.authCard}>
+      <div className={stylesCard.card}>
         <h1 className={styles.authHeader}>
           <Image src="/logo-ETHOS.png" alt="Logo" width={24} height={24} />
           ETHOS CPAC

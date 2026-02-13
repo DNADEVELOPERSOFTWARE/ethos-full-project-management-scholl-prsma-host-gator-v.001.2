@@ -6,6 +6,8 @@ import { toast } from "react-toastify";
 import styles from "@/styles/pages/auth.module.scss";
 import Input from "@/components/ui/inputs/Input";
 import Button from "@/components/ui/buttons/Button";
+import stylesCard from "@/styles/components/card.module.scss";
+
 import Image from "next/image";
 
 export default function ResetPasswordClient() {
@@ -72,7 +74,7 @@ export default function ResetPasswordClient() {
   if (!token) {
     return (
       <div className={styles.authPage}>
-        <div className={styles.authCard}>
+        <div className={stylesCard.card}>
           <h2 className={styles.authSubtitle}>Token inválido ou expirado</h2>
         </div>
       </div>
@@ -81,7 +83,7 @@ export default function ResetPasswordClient() {
 
   return (
     <div className={styles.authPage}>
-      <form onSubmit={handleSubmit} className={styles.authCard}>
+      <form onSubmit={handleSubmit} className={stylesCard.card}>
         <h1 className={styles.authHeader}>
           <Image src="/logo-ETHOS.png" alt="Logo" width={24} height={24} />
           ETHOS CPAC
@@ -89,13 +91,6 @@ export default function ResetPasswordClient() {
         <h2 className={styles.authSubtitle}>Redefinir senha</h2>
 
         <div className={styles.field}>
-          {/* <label>Nova senha</label>
-          <input
-            type="password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          /> */}
           <Input
             label="Nova senha"
             type="password"
@@ -106,13 +101,6 @@ export default function ResetPasswordClient() {
         </div>
 
         <div className={styles.field}>
-          {/* <label>Confirmar senha</label>
-          <input
-            type="password"
-            required
-            value={confirm}
-            onChange={(e) => setConfirm(e.target.value)}
-          /> */}
           <Input
             label="Confirmar senha"
             type="password"
@@ -122,9 +110,6 @@ export default function ResetPasswordClient() {
           />
         </div>
 
-        {/* <button type="submit" className={styles.authButton} disabled={loading}>
-          {loading ? "Processando..." : "Redefinir senha"}
-        </button> */}
         <Button type="submit" disabled={loading} fullWidth marginTop>
           {loading ? "Processando..." : "Redefinir senha"}
         </Button>

@@ -21,7 +21,7 @@ import { useState } from "react";
 import styles from "@/styles/pages/auth.module.scss";
 import Input from "@/components/ui/inputs/Input";
 import Button from "@/components/ui/buttons/Button";
-// import inputStyles from "@/styles/components/input.module.scss";
+import stylesCard from "@/styles/components/card.module.scss";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -112,7 +112,7 @@ const LoginPage = () => {
       {/* ================================
        🔐 LOGIN LOCAL (ATIVO)
      ================================ */}
-      <form onSubmit={handleLogin} className={styles.authCard}>
+      <form onSubmit={handleLogin} className={stylesCard.card}>
         <h1 className={styles.authHeader}>
           <Image src="/logo-ETHOS.png" alt="Logo" width={24} height={24} />
           ETHOS CPAC
@@ -131,16 +131,6 @@ const LoginPage = () => {
             onChange={(e) => setUsername(e.target.value)}
             placeholder="ex: admin"
           />
-
-          {/* <label className={`${styles.label}`}>Nome de usuário</label> */}
-          {/* <input
-            className={`${styles.input} ${inputStyles.input}`}
-            type="text"
-            required
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="ex: admin"
-          /> */}
         </div>
 
         <div className={styles.field}>
@@ -151,23 +141,10 @@ const LoginPage = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          {/* <label className={`${styles.label} ${inputStyles.label}`}>
-            Senha
-          </label> */}
-          {/* <input
-            className={`${styles.input} ${inputStyles.input}`}
-            type="password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          /> */}
         </div>
 
-        {/* <button type="submit" disabled={loading} className={styles.authButton}>
-          {loading ? "Entrando..." : "Entrar"}
-        </button> */}
         <Button type="submit" loading={loading} fullWidth marginTop>
-           {loading ? "Entrando..." : "Entrar"}
+          {loading ? "Entrando..." : "Entrar"}
         </Button>
         <p className={styles.authHelper}>
           <a href="/forgot-password">Esqueceu sua senha?</a>

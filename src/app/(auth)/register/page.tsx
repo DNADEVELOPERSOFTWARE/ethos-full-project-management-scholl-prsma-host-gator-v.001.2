@@ -20,8 +20,6 @@ import styles from "@/styles/pages/auth.module.scss";
 import Input from "@/components/ui/inputs/Input";
 import Button from "@/components/ui/buttons/Button";
 
-// import inputStyles from "@/styles/components/input.module.scss";
-
 const USE_CLERK = false; // 🔥 Alterar para true quando religar Clerk
 
 export default function RegisterPage() {
@@ -103,54 +101,28 @@ export default function RegisterPage() {
                 onChange={(e) => setName(e.target.value)}
                 required
               />
-              {/* <label className={`${styles.label} ${inputStyles.label}`}>Nome completo</label>
-              <input className={`${styles.input} ${inputStyles.input}`}
-                type="text"
-                placeholder="Administrador"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              /> */}
             </div>
 
             <div className={styles.field}>
-                <Input  
-                label="Usuário" 
+              <Input
+                label="Usuário"
                 type="text"
                 placeholder="admin"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
               />
-               {/*
-              {/* <label className={`${styles.label} ${inputStyles.label}`}>Usuário</label>
-              <input className={`${styles.input} ${inputStyles.input}`}
-                type="text"
-                placeholder="admin"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              /> */}
             </div>
 
             <div className={styles.field}>
-              <Input  
+              <Input
                 label="Email"
-                type="email"
-                placeholder="admin@ethos.com" 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-               {/*
-              {/* <label className={`${styles.label} ${inputStyles.label}`}>Email</label>
-              <input className={`${styles.input} ${inputStyles.input}`}
                 type="email"
                 placeholder="admin@ethos.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-              /> */}
+              />
             </div>
 
             <div className={styles.field}>
@@ -161,25 +133,10 @@ export default function RegisterPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-               {/*
-              {/* <label className={`${styles.label} ${inputStyles.label}`}>Senha</label>
-              <input className={`${styles.input} ${inputStyles.input}`}
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              /> */}
             </div>
 
-            {/* <button
-              type="submit"
-              disabled={loading}
-              className={styles.authButton}
-            >
-              {loading ? "Criando..." : "Criar usuário"}
-            </button> */}
             <Button type="submit" loading={loading} fullWidth marginTop>
-               {loading ? "Criando..." : "Criar usuário"}
+              {loading ? "Criando..." : "Criar usuário"}
             </Button>
           </form>
         </>
