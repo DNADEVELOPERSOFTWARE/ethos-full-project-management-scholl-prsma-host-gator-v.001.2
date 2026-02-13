@@ -80,8 +80,8 @@ export default function ForgotPasswordPage() {
         {/* <button type="submit" disabled={loading} className={styles.authButton}>
           {loading ? "Enviando..." : "Enviar link"}
         </button> */}
-        <Button type="submit" loading={loading} fullWidth>
-          Enviar link
+        <Button type="submit" loading={loading} fullWidth marginTop>
+          {loading ? "Enviando..." : "Enviar link"}
         </Button>
 
         <p className={styles.authHelper}>

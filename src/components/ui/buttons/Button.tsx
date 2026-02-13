@@ -7,12 +7,14 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: Variant;
   fullWidth?: boolean;
   loading?: boolean;
+  marginTop?: boolean;
 };
 
 export default function Button({
   variant = "primary",
   fullWidth,
   loading,
+  marginTop,
   children,
   className,
   disabled,
@@ -25,6 +27,7 @@ export default function Button({
         ${styles[variant]}
         ${fullWidth ? styles.fullWidth : ""}
         ${className || ""}
+        ${marginTop ? styles.marginTop : ""}
       `}
       disabled={disabled || loading}
       {...props}

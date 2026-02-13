@@ -178,8 +178,8 @@ export default function RegisterPage() {
             >
               {loading ? "Criando..." : "Criar usuário"}
             </button> */}
-            <Button type="submit" loading={loading} fullWidth>
-              Criar usuário
+            <Button type="submit" loading={loading} fullWidth marginTop>
+               {loading ? "Criando..." : "Criar usuário"}
             </Button>
           </form>
         </>

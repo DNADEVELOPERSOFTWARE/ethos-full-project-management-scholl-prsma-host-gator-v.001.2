@@ -166,8 +166,8 @@ const LoginPage = () => {
         {/* <button type="submit" disabled={loading} className={styles.authButton}>
           {loading ? "Entrando..." : "Entrar"}
         </button> */}
-        <Button type="submit" loading={loading} fullWidth>
-          Entrar
+        <Button type="submit" loading={loading} fullWidth marginTop>
+           {loading ? "Entrando..." : "Entrar"}
         </Button>
         <p className={styles.authHelper}>
           <a href="/forgot-password">Esqueceu sua senha?</a>

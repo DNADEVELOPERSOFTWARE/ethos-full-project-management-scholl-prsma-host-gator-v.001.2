@@ -1,54 +1,5 @@
 @use "../abstracts/variables" as c;
 
-/* ================================
-   REGISTER SECTION
-================================ */
-
-.registerSection {
-  min-height: 100vh;
-  background: linear-gradient(180deg, c.$bl08 0%, c.$bl07 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("/assets/ethos-icon.svg");
-    background-repeat: no-repeat;
-    background-position: right -160px bottom -120px;
-    background-size: clamp(320px, 40vw, 480px);
-    opacity: 0.03;
-    pointer-events: none;
-  }
-}
-
-/* ================================
-   CONTAINER
-================================ */
-
-.registerContainer {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 420px;
-}
-
-/* ================================
-   CARD
-================================ */
-
-.card {
-  background: #020617;
-  border: 1px solid #1e293b;
-  border-radius: 22px;
-  padding: 2.5rem;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
-}
 
 /* ================================
    HEADER
@@ -76,19 +27,7 @@
   }
 }
 
-/* ================================
-   ERROR MESSAGE
-================================ */
 
-.error {
-  background: rgba(239, 68, 68, 0.1);
-  color: #fecaca;
-  padding: 0.6rem 0.8rem;
-  border-radius: 10px;
-  font-size: 0.85rem;
-  margin-bottom: 1rem;
-  border: 1px solid rgba(239, 68, 68, 0.25);
-}
 
 /* ================================
    FORM
@@ -99,29 +38,6 @@
   flex-direction: column;
   gap: 1.25rem;
 
-  button {
-    margin-top: 1.5rem;
-    background: #fb5;
-    color: #020617;
-    border: none;
-    padding: 0.85rem;
-    border-radius: 14px;
-    font-weight: 800;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 34px rgba(251, 187, 85, 0.35);
-    }
-
-    &:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-  }
 }
 
 
@@ -137,6 +53,7 @@
 
   background: linear-gradient(180deg, c.$bl11 0%, c.$bl07 100%);
   position: relative;
+  overflow: hidden;
 }
 
 .authPage > * {

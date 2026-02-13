@@ -17,14 +17,12 @@ export default function AuthLayout({
   return (
     <section className={styles.authPage}>
       <div className={styles.authCard}>
+        <h1 className={styles.authHeader}>
+          <Image src="/logo-ETHOS.png" alt="Logo" width={24} height={24} />
+          ETHOS CPAC
+        </h1>
+
         <header className={styles.header}>
-          <Image
-            src="/logo-ETHOS.png"
-            alt="ETHOS"
-            width={42}
-            height={42}
-            priority
-          />
           <div>
             <h1>{title}</h1>
             {subtitle && <p>{subtitle}</p>}
