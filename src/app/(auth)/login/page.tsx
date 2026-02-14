@@ -6,6 +6,8 @@ import { useState } from "react";
 import styles from "./login.module.scss"; // novo CSS local da página
 import Input from "@/components/ui/inputs/Input";
 import Button from "@/components/ui/buttons/Button";
+import Link from "next/link";
+import { Link as LinkIcon } from "lucide-react";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -80,7 +82,18 @@ const LoginPage = () => {
         </Button>
 
         <p className={styles.helper}>
-          <a href="/forgot-password">Esqueceu sua senha?</a>
+          <Link href="/forgot-password">
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+              }}
+            >
+              <LinkIcon className="link-icon" />
+              Esqueceu sua senha?
+            </div>
+          </Link>
         </p>
       </form>
     </>
@@ -88,9 +101,6 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
-
-
 
 // "use client";
 

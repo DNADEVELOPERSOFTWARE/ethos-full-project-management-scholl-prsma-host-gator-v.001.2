@@ -36,47 +36,75 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    // <ClerkProvider>
     <html lang="en">
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-        (function () {
-          const saved = localStorage.getItem('theme');
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          const theme = saved || (prefersDark ? 'dark' : 'light');
-          document.documentElement.setAttribute('data-theme', theme);
-        })();
-      `,
-          }}
+      <body className={inter.className}>
+        <ThemeProvider>
+          {children}
+          <ToastContainer position="bottom-right" theme="colored" />
+        </ThemeProvider>
+
+        <Script
+          src="https://unpkg.com/video.js/dist/video.min.js"
+          strategy="beforeInteractive"
         />
-      </head>
 
-     <body className={inter.className}>
-  <ThemeProvider>
-    {children}
-    <ToastContainer position="bottom-right" theme="colored" />
-  </ThemeProvider>
-
-  {/* Video.js */}
-  <Script
-    src="https://unpkg.com/video.js/dist/video.min.js"
-    strategy="beforeInteractive"
-  />
-
-  {/* Cloudinary Player */}
-  <Script
-    src="https://unpkg.com/cloudinary-video-player/dist/cld-video-player.min.js"
-    strategy="afterInteractive"
-  />
-</body>
-
+        <Script
+          src="https://unpkg.com/cloudinary-video-player/dist/cld-video-player.min.js"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
-    // </ClerkProvider>
   );
 }
+
+
+// export default function RootLayout({
+//   children,
+// }: Readonly<{
+//   children: React.ReactNode;
+// }>) {
+//   return (
+//     // <ClerkProvider>
+//     <html lang="en">
+//       <head>
+//         <script
+//           dangerouslySetInnerHTML={{
+//             __html: `
+//         (function () {
+//           const saved = localStorage.getItem('theme');
+//           const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+//           const theme = saved || (prefersDark ? 'dark' : 'light');
+//           document.documentElement.setAttribute('data-theme', theme);
+//         })();
+//       `,
+//           }}
+//         />
+//       </head>
+
+//      <body className={inter.className}>
+//   <ThemeProvider>
+//     {children}
+//     <ToastContainer position="bottom-right" theme="colored" />
+//   </ThemeProvider>
+
+//   {/* Video.js */}
+//   <Script
+//     src="https://unpkg.com/video.js/dist/video.min.js"
+//     strategy="beforeInteractive"
+//   />
+
+//   {/* Cloudinary Player */}
+//   <Script
+//     src="https://unpkg.com/cloudinary-video-player/dist/cld-video-player.min.js"
+//     strategy="afterInteractive"
+//   />
+// </body>
+
+//     </html>
+//     // </ClerkProvider>
+//   );
+// }

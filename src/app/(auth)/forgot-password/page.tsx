@@ -4,9 +4,11 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
-import styles from "./forgot-password.module.scss"
+import styles from "./forgot-password.module.scss";
 import Input from "@/components/ui/inputs/Input";
 import Button from "@/components/ui/buttons/Button";
+import Link from "next/link";
+import { Link as LinkIcon } from "lucide-react";
 
 export default function ForgotPasswordPage() {
   const router = useRouter();
@@ -67,11 +69,25 @@ export default function ForgotPasswordPage() {
         <Button type="submit" loading={loading} fullWidth>
           {loading ? "Enviando..." : "Enviar instruções"}
         </Button>
+
+        <div className={styles.backToLogin}>
+          <Link href="/login">
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+              }}
+            >
+              <LinkIcon className="link-icon" /> Já tem conta?{" "}
+              <span>Entrar</span>
+            </div>
+          </Link>
+        </div>
       </form>
     </>
   );
 }
-
 
 // "use client";
 
@@ -136,7 +152,7 @@ export default function ForgotPasswordPage() {
 //           {/* <label className={styles.label  }>Email</label>
 //           <input
 //           label=
-//             className={styles.input}    
+//             className={styles.input}
 //             type="email"
 //             required
 //             value={email}
