@@ -1,9 +1,19 @@
 @use "../abstracts/variables" as v;
 
 :root[data-theme="light"] {
-  --color-bg: #{v.$grl01};
-  --color-bg-soft: #{v.$grl02};
-  --color-text: #{v.$bl08};
-  --color-border: #{v.$bl03};
-  --color-accent: #{v.$ethos-gold};
+  /* surfaces */
+  --surface-primary: #{v.$grl01};
+  --surface-secondary: #{v.$grl02};
+
+  /* text */
+  --text-primary: #{v.$bl11};
+  --text-secondary: #{v.$bl08};
+  --text-muted: #6b7280;
+
+  /* borders */
+  --border-primary: #{v.$bl03};
+
+  /* brand */
+  --accent-primary: #{v.$ethos-gold};
+  --button-text: #0c0f1a;
 }

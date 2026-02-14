@@ -1,4 +1,5 @@
 @use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/breakpoints" as *;
 
 @mixin input-label {
   font-size: 0.8rem;
@@ -19,16 +20,24 @@
 
   transition: all 0.2s ease;
 
-    &::placeholder {
-      color: var(--text-muted);
-    }
+  @include respond(md) {
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+  }
 
-    &:focus {
-      outline: none;
-      border-color: var(--accent-primary);
-      box-shadow: 0 0 0 2px rgba(242, 184, 75, 0.2);
-    }
- 
+  @include respond(lg) {
+    padding: 1rem 1.1rem;
+    font-size: 1rem;
+  }
+
+  &::placeholder {
+    color: var(--text-muted);
+  }
+  &:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(242, 184, 75, 0.2);
+  }
 }
 
 @mixin field-base {
@@ -37,70 +46,3 @@
   gap: 0.4rem;
   margin-bottom: 1.4rem;
 }
-
-// .label {
-//   font-size: 0.8rem;
-//   font-weight: 600;
-//   letter-spacing: 1px;
-//   text-transform: uppercase;
-//   color: var(--text-secondary);
-// }
-
-// .input {
-//   width: 100%;
-//   padding: 0.9rem 1rem;
-//   border-radius: 10px;
-
-//   border: 1px solid var(--border-primary);
-//   background: var(--surface-secondary);
-//   color: var(--text-primary);
-
-//   transition: all 0.2s ease;
-
-//   &::placeholder {
-//     color: var(--text-muted);
-//   }
-
-//   &:focus {
-//     outline: none;
-//     border-color: var(--accent-primary);
-//     box-shadow: 0 0 0 2px rgba(242, 184, 75, 0.2);
-//   }
-// }
-
-// // .field {
-// //   display: flex;
-// //   flex-direction: column;
-// //   gap: 0.4rem;
-// //   margin-bottom: 1.4rem;
-// // }
-
-// // .label {
-// //   font-size: 0.8rem;
-// //   font-weight: 600;
-// //   letter-spacing: 1px;
-// //   text-transform: uppercase;
-// //   color: var(--text-secondary);
-// // }
-
-// // .input {
-// //   width: 100%;
-// //   padding: 0.9rem 1rem;
-// //   border-radius: 10px;
-
-// //   border: 1px solid var(--border-primary);
-// //   background: var(--surface-secondary);
-// //   color: var(--text-primary);
-
-// //   transition: all 0.2s ease;
-
-// //   &::placeholder {
-// //     color: var(--text-muted);
-// //   }
-
-// //   &:focus {
-// //     outline: none;
-// //     border-color: var(--accent-primary);
-// //     box-shadow: 0 0 0 2px rgba(242, 184, 75, 0.2);
-// //   }
-// // }

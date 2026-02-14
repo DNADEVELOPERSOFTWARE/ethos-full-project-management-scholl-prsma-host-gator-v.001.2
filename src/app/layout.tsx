@@ -6,6 +6,8 @@ import Script from "next/script";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ThemeProvider } from "@/providers/ThemeProvider";
+
 import localFont from "next/font/local";
 
 const inter = localFont({
@@ -39,21 +41,41 @@ export default function RootLayout({
 }>) {
   return (
     // <ClerkProvider>
-    <html lang="en" data-theme="dark">
-      <body className={inter.className}>
-        {children} <ToastContainer position="bottom-right" theme="dark" />
-         {/* Video.js (OBRIGATÓRIO) */}
-        <Script
-          src="https://unpkg.com/video.js/dist/video.min.js"
-          strategy="beforeInteractive"
+    <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+        (function () {
+          const saved = localStorage.getItem('theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const theme = saved || (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        })();
+      `,
+          }}
         />
+      </head>
 
-        {/* Cloudinary Player */}
-        <Script
-          src="https://unpkg.com/cloudinary-video-player/dist/cld-video-player.min.js"
-          strategy="afterInteractive"
-        />
-      </body>
+     <body className={inter.className}>
+  <ThemeProvider>
+    {children}
+    <ToastContainer position="bottom-right" theme="colored" />
+  </ThemeProvider>
+
+  {/* Video.js */}
+  <Script
+    src="https://unpkg.com/video.js/dist/video.min.js"
+    strategy="beforeInteractive"
+  />
+
+  {/* Cloudinary Player */}
+  <Script
+    src="https://unpkg.com/cloudinary-video-player/dist/cld-video-player.min.js"
+    strategy="afterInteractive"
+  />
+</body>
+
     </html>
     // </ClerkProvider>
   );

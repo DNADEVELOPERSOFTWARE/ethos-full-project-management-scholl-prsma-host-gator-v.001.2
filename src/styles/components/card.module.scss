@@ -1,3 +1,5 @@
+@use "@/styles/abstracts/breakpoints" as *;
+
 .card {
   width: 100%;
   max-width: 420px;
@@ -12,5 +14,19 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+
+  
+  @include respond(sm) {
+    max-width: 420px;
+  }
+
+  @include respond(md) {
+    padding: 2.2rem 2rem;
+  }
+
+  @include respond(lg) {
+    padding: 2.75rem 2.5rem;
+    border-radius: 22px;
+  }
 }
 

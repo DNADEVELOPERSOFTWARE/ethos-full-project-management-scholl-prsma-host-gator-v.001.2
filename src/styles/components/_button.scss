@@ -1,4 +1,5 @@
 @use "@/styles/abstracts/variables" as *;
+@use "@/styles/abstracts/breakpoints" as *;
 
 @mixin button-base {
   padding: 0.9rem;
@@ -15,6 +16,16 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+
+   @include respond(md) {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  @include respond(lg) {
+    padding: 1rem 1.4rem;
+    font-size: 1rem;
+  }
 
   &:disabled {
     opacity: 0.6;
@@ -54,35 +65,3 @@
   }
 }
 
-
-
-// .button {
-//   width: 100%;
-
-//   background: var(--accent-primary);
-//   color: var(--button-text);
-
-//   border: none;
-//   border-radius: 12px;
-
-//   padding: 0.9rem;
-
-//   font-weight: 600;
-//   font-size: 0.95rem;
-//   text-transform: uppercase;
-
-//   cursor: pointer;
-//   transition: all 0.2s ease;
-// }
-
-// .button:hover {
-//   transform: translateY(-2px);
-//   box-shadow: 0 10px 20px rgba(242, 184, 75, 0.3);
-// }
-
-// .button:disabled {
-//   opacity: 0.6;
-//   cursor: not-allowed;
-//   transform: none;
-//   box-shadow: none;
-// }

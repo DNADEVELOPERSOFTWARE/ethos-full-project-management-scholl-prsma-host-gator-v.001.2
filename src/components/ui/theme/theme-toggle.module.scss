@@ -1,0 +1,26 @@
+.toggle {
+  width: 52px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid var(--border-primary);
+  background: var(--surface-secondary);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  display: flex;
+  align-items: center;
+  padding: 3px;
+}
+
+.circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  transition: transform 0.3s ease;
+}
+
+.dark .circle {
+  transform: translateX(24px);
+}
