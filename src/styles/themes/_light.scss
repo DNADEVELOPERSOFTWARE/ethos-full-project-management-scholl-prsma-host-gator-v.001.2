@@ -16,4 +16,52 @@
   /* brand */
   --accent-primary: #{v.$ethos-gold};
   --button-text: #0c0f1a;
+
+  /* inverse background */
+    /* surfaces */
+  --surface-primary-inverse: #{v.$bl11};
+  --surface-secondary-inverse: #{v.$bl09};
+
+  /* text */
+  --text-primary-inverse: #ffffff;
+  --text-secondary-inverse: #9fb4d6;
+  --text-muted-inverse: #64748b;
+  
+   /* borders */
+  --border-primary-inverse: #{v.$bl09};
+
+  /* brand */
+  --accent-primary-inverse: #{v.$ethos-gold};
+  --button-text-inverse: #0c0f1a;
+
+  /* contact */
+ 
+  --contact-bg-start: #f8fafc;
+  --contact-bg-end: #eef2ff;
+
+  --contact-accent: #f59e0b;
+
+  --contact-title: #0f172a;
+  --contact-subtitle: #475569;
+  --contact-strong: #0f172a;
+
+  --contact-card-bg: #ffffff;
+  --contact-border: #e2e8f0;
+  --contact-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+
+  --contact-label: #334155;
+
+  --contact-input-bg: #f8fafc;
+  --contact-input-border: #cbd5e1;
+  --contact-input-text: #0f172a;
+  --contact-placeholder: #94a3b8;
+
+  --contact-focus-ring: rgba(245, 158, 11, 0.25);
+
+  --contact-button-text: #ffffff;
+  --contact-button-shadow: 0 10px 25px rgba(245, 158, 11, 0.35);
+
+  --contact-badge-bg: rgba(245, 158, 11, 0.12);
+  --contact-bg-icon-opacity: 0.02;
+
 }

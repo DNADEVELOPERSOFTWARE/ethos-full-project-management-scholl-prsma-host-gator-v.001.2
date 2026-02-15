@@ -5,6 +5,8 @@
   border: 1px solid var(--border-primary);
   background: var(--surface-secondary);
   position: relative;
+
+
   cursor: pointer;
   transition: background 0.3s ease;
 
@@ -21,6 +23,25 @@
   transition: transform 0.3s ease;
 }
 
-.dark .circle {
+[data-theme="dark"] .circle {
   transform: translateX(24px);
 }
+.themeToggle {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+ color: var(--icon-color);
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+

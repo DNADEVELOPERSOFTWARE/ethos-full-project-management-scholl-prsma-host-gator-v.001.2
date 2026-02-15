@@ -6,10 +6,12 @@
   padding: 5rem 2rem;
   text-align: center;
 }
+
 .benefitsSection {
-  background: linear-gradient(180deg, #020617 0%, #1e293b 100%);
+  background: var(--surface-secondary);
   padding: 6rem 2rem;
   position: relative;
+  overflow: hidden;
 }
 
 .benefitsSection::before {
@@ -22,7 +24,7 @@
   background-position: left -180px center;
   background-size: clamp(320px, 45vw, 480px);
 
-  opacity: 0.025;
+  opacity: 0.03;
   filter: blur(0.4px);
 
   pointer-events: none;
@@ -39,8 +41,8 @@
 
 .benefitsBadge {
   display: inline-block;
-  background: rgba(251, 187, 85, 0.12);
-  color: #fb5;
+  background: color-mix(in srgb, var(--accent-primary) 15%, transparent);
+  color: var(--accent-primary);
   padding: 0.35rem 0.9rem;
   border-radius: 999px;
   font-size: 0.75rem;
@@ -52,10 +54,10 @@
   font-size: 2.3rem;
   font-weight: 800;
   margin-bottom: 1rem;
-  color: white;
+  color: var(--text-primary);
 
   span {
-    color: #fb5;
+    color: var(--accent-primary);
   }
 }
 
@@ -64,10 +66,10 @@
   margin: 0 auto 3.5rem;
   font-size: 1.125rem;
   line-height: 1.7;
-  color: #cbd5f5;
+  color: var(--text-secondary);
 
   strong {
-    color: white;
+    color: var(--text-primary);
   }
 }
 
@@ -78,8 +80,8 @@
 }
 
 .benefitCard {
-  background: #020617;
-  border: 1px solid #1e293b;
+  background: var(--surface-primary);
+  border: 1px solid var(--border-primary);
   border-radius: 18px;
   padding: 2.5rem 2rem;
   text-align: left;
@@ -88,20 +90,20 @@
   h3 {
     font-size: 1.15rem;
     font-weight: 700;
-    color: #fb5;
+    color: var(--accent-primary);
     margin-bottom: 0.75rem;
   }
 
   p {
     font-size: 0.95rem;
-    color: #cbd5f5;
+    color: var(--text-secondary);
     line-height: 1.6;
   }
 
   &:hover {
     transform: translateY(-8px);
-    border-color: #fb5;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent-primary);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -109,9 +111,11 @@
   font-size: 1.8rem;
   display: inline-flex;
   margin-bottom: 1rem;
+  color: var(--accent-primary);
 }
 
-// ================= RESPONSIVE ================= //
+/* ================= RESPONSIVE ================= */
+
 @media (max-width: 1200px) {
   .benefitsSection {
     padding: 5.5rem 2rem;
@@ -125,6 +129,7 @@
     font-size: 1.05rem;
   }
 }
+
 @media (max-width: 1024px) {
   .benefitsSection::before {
     background-position: center top 120px;
@@ -142,6 +147,7 @@
     text-align: center;
   }
 }
+
 @media (max-width: 768px) {
   .benefitsSection {
     padding: 4.5rem 1.5rem;
@@ -168,6 +174,7 @@
     font-size: 1.6rem;
   }
 }
+
 @media (max-width: 480px) {
   .benefitsSection::before {
     background-size: 220px;
@@ -183,3 +190,190 @@
     font-size: 0.95rem;
   }
 }
+
+
+// /* ================= BENEFITS ================= */
+
+// .benefits {
+//   max-width: 1000px;
+//   margin: 0 auto;
+//   padding: 5rem 2rem;
+//   text-align: center;
+// }
+// .benefitsSection {
+//   background: linear-gradient(180deg, #020617 0%, #1e293b 100%);
+//   padding: 6rem 2rem;
+//   position: relative;
+// }
+
+// .benefitsSection::before {
+//   content: "";
+//   position: absolute;
+//   inset: 0;
+
+//   background-image: url("/assets/ethos-icon.svg");
+//   background-repeat: no-repeat;
+//   background-position: left -180px center;
+//   background-size: clamp(320px, 45vw, 480px);
+
+//   opacity: 0.025;
+//   filter: blur(0.4px);
+
+//   pointer-events: none;
+//   z-index: 0;
+// }
+
+// .benefitsContainer {
+//   max-width: 1100px;
+//   margin: 0 auto;
+//   text-align: center;
+//   position: relative;
+//   z-index: 1;
+// }
+
+// .benefitsBadge {
+//   display: inline-block;
+//   background: rgba(251, 187, 85, 0.12);
+//   color: #fb5;
+//   padding: 0.35rem 0.9rem;
+//   border-radius: 999px;
+//   font-size: 0.75rem;
+//   font-weight: 600;
+//   margin-bottom: 1rem;
+// }
+
+// .benefitsTitle {
+//   font-size: 2.3rem;
+//   font-weight: 800;
+//   margin-bottom: 1rem;
+//   color: white;
+
+//   span {
+//     color: #fb5;
+//   }
+// }
+
+// .benefitsSubtitle {
+//   max-width: 720px;
+//   margin: 0 auto 3.5rem;
+//   font-size: 1.125rem;
+//   line-height: 1.7;
+//   color: #cbd5f5;
+
+//   strong {
+//     color: white;
+//   }
+// }
+
+// .benefitsGrid {
+//   display: grid;
+//   gap: 2rem;
+//   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+// }
+
+// .benefitCard {
+//   background: #020617;
+//   border: 1px solid #1e293b;
+//   border-radius: 18px;
+//   padding: 2.5rem 2rem;
+//   text-align: left;
+//   transition: all 0.35s ease;
+
+//   h3 {
+//     font-size: 1.15rem;
+//     font-weight: 700;
+//     color: #fb5;
+//     margin-bottom: 0.75rem;
+//   }
+
+//   p {
+//     font-size: 0.95rem;
+//     color: #cbd5f5;
+//     line-height: 1.6;
+//   }
+
+//   &:hover {
+//     transform: translateY(-8px);
+//     border-color: #fb5;
+//     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+//   }
+// }
+
+// .benefitIcon {
+//   font-size: 1.8rem;
+//   display: inline-flex;
+//   margin-bottom: 1rem;
+// }
+
+// // ================= RESPONSIVE ================= //
+// @media (max-width: 1200px) {
+//   .benefitsSection {
+//     padding: 5.5rem 2rem;
+//   }
+
+//   .benefitsTitle {
+//     font-size: 2.1rem;
+//   }
+
+//   .benefitsSubtitle {
+//     font-size: 1.05rem;
+//   }
+// }
+// @media (max-width: 1024px) {
+//   .benefitsSection::before {
+//     background-position: center top 120px;
+//     background-size: 380px;
+//     opacity: 0.02;
+//   }
+
+//   .benefitsGrid {
+//     grid-template-columns: 1fr;
+//     max-width: 640px;
+//     margin: 0 auto;
+//   }
+
+//   .benefitCard {
+//     text-align: center;
+//   }
+// }
+// @media (max-width: 768px) {
+//   .benefitsSection {
+//     padding: 4.5rem 1.5rem;
+//   }
+
+//   .benefitsBadge {
+//     font-size: 0.7rem;
+//   }
+
+//   .benefitsTitle {
+//     font-size: 1.85rem;
+//   }
+
+//   .benefitsSubtitle {
+//     font-size: 1rem;
+//     margin-bottom: 3rem;
+//   }
+
+//   .benefitCard {
+//     padding: 2rem 1.5rem;
+//   }
+
+//   .benefitIcon {
+//     font-size: 1.6rem;
+//   }
+// }
+// @media (max-width: 480px) {
+//   .benefitsSection::before {
+//     background-size: 220px;
+//     background-position: center top 90px;
+//     opacity: 0.015;
+//   }
+
+//   .benefitsTitle {
+//     font-size: 1.65rem;
+//   }
+
+//   .benefitsSubtitle {
+//     font-size: 0.95rem;
+//   }
+// }

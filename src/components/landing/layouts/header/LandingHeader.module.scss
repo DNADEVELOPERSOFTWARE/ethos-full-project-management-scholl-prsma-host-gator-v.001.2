@@ -56,6 +56,18 @@
   font-weight: 500;
   background-color: #fb5;
 }
+.themeToggle{
+ background: transparent;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #0f172a !important;
+}
+
 /* =========================================================
    RESPONSIVO – LANDING HEADER
 ========================================================= */
