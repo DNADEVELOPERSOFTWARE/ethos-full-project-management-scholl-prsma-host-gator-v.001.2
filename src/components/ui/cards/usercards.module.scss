@@ -1,0 +1,82 @@
+@use "../../../styles//abstracts/variables" as v;
+.card {
+  flex: 1;
+  min-width: 150px;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  
+
+  background: linear-gradient(
+    135deg,
+    var(--card-bg-start),
+    var(--card-bg-end)
+  );
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.admin {
+  background: var(--card-admin);
+}
+
+.teacher {
+  background: var(--card-teacher);
+}
+
+.student {
+  background: var(--card-student);
+}
+
+.parent {
+  background: var(--card-parent);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badge {
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  color: v.$bl09;
+}
+
+.value {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 20px 0 8px;
+  color:v.$bl09;
+}
+
+.label {
+  font-size: 14px;
+  opacity: 0.85;
+  color: v.$bl09;
+}

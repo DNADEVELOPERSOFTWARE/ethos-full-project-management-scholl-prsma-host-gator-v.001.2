@@ -64,4 +64,40 @@
   --contact-badge-bg: rgba(245, 158, 11, 0.12);
   --contact-bg-icon-opacity: 0.02;
 
+  /* ===== SYSTEM STATES ===== */
+--success: #16a34a;
+--danger: #dc2626;
+--warning: #f59e0b;
+--info: #0284c7;
+
+/* ===== INTERACTIONS ===== */
+--hover-overlay: rgba(0, 0, 0, 0.03);
+--active-overlay: rgba(0, 0, 0, 0.06);
+--disabled-opacity: 0.5;
+
+/* ===== EXTRA SURFACES ===== */
+--surface-tertiary: #eef2ff;
+--card-bg: #ffffff;
+
+/* ===== OVERLAY ===== */
+--overlay-bg: rgba(15, 23, 42, 0.5);
+
+/* ===== SHADOWS ===== */
+--shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.05);
+--shadow-md: 0 10px 25px rgba(15, 23, 42, 0.08);
+--shadow-lg: 0 20px 40px rgba(15, 23, 42, 0.12);
+
+/* Dashboard Cards - Light */
+
+--card-admin: #c7c6f6;      /* lavanda claro */
+--card-teacher: #f6dd9c;    /* amarelo pastel */
+--card-student: #c7c6f6;
+--card-parent: #f6dd9c;
+
+--card-text: #1f2937;       /* texto escuro */
+--card-badge-bg: #dcfce7;   /* verde claro */
+--card-badge-text: #166534; /* verde escuro */
+
+--card-muted: #6b7280;
+
 }

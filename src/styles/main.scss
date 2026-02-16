@@ -1,13 +1,33 @@
-@use "abstracts/variables";
+
+/* 1. Abstracts */
+@use "./abstracts/variables";
+@use "./abstracts/functions";
+@use "./abstracts/mixins";
+@use "./abstracts/breakpoints";
 @use "abstracts/typography-tokens";
-@use "abstracts/mixins";
-@use "abstracts/functions";
-@use "abstracts/breakpoints";
 
-@use "base/reset";
-@use "base/fonts";
-@use "base/typography";
-@use "base/base";
+/* 2. Base */
+@use "./base/reset";
+@use "./base/fonts";
+@use "./base/typography";
+@use "./base/base";
 
-@use "themes/dark";
-@use "themes/light";
+/* 3. Themes */
+@use "./themes/light";
+@use "./themes/dark";
+
+/* 4. Layout */
+@use "./layout/app.module";
+@use "./layout/dashboard.module";
+@use "./layout/header.module";
+@use "./layout/sidebar.module";
+@use "./layout/footer.module";
+
+/* 5. Components */
+@use "./components/button";
+@use "./components/input";
+
+/* 6. Pages */
+@use "./pages/auth.module";
+@use "./pages/ead.module";
+@use "./pages/profile.module";

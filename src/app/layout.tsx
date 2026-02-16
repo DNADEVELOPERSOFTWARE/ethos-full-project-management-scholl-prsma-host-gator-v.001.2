@@ -40,24 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
-      {/* <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function () {
-                try {
-                  const saved = localStorage.getItem('theme');
-                  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  const theme = saved || (prefersDark ? 'dark' : 'light');
-                  document.documentElement.setAttribute('data-theme', theme);
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
-      </head> */}
-
+    <html lang="pt-BR" data-theme="light">
       <body className={inter.className}>
         <ThemeProvider>
           {children}
