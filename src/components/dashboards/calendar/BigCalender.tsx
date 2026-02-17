@@ -1,9 +1,16 @@
 "use client";
 
-import { Calendar, momentLocalizer, View, Views } from "react-big-calendar";
+import {
+  Calendar,
+  momentLocalizer,
+  View,
+  Views,
+} from "react-big-calendar";
 import moment from "moment";
-import "react-big-calendar/lib/css/react-big-calendar.css";
 import { useState } from "react";
+import styles from "./bigCalendar.module.scss";
+
+import "react-big-calendar/lib/css/react-big-calendar.css";
 
 moment.locale("pt-br");
 
@@ -16,24 +23,63 @@ const BigCalendar = ({
 }) => {
   const [view, setView] = useState<View>(Views.WORK_WEEK);
 
-  const handleOnChangeView = (selectedView: View) => {
-    setView(selectedView);
-  };
-
   return (
-    <Calendar
-      localizer={localizer}
-      events={data}
-      startAccessor="start"
-      endAccessor="end"
-      views={["work_week", "day"]}
-      view={view}
-      style={{ height: "98%" }}
-      onView={handleOnChangeView}
-      min={new Date(2025, 1, 0, 8, 0, 0)}
-      max={new Date(2025, 1, 0, 17, 0, 0)}
-    />
+    <div className={styles.calendarWrapper}>
+      <Calendar
+        localizer={localizer}
+        events={data}
+        startAccessor="start"
+        endAccessor="end"
+        views={["work_week", "day"]}
+        view={view}
+        onView={(selectedView) => setView(selectedView)}
+        min={new Date(2025, 1, 0, 8, 0, 0)}
+        max={new Date(2025, 1, 0, 17, 0, 0)}
+        className={styles.calendar}
+      />
+    </div>
   );
 };
 
 export default BigCalendar;
+
+
+// "use client";
+
+// import { Calendar, momentLocalizer, View, Views } from "react-big-calendar";
+// import moment from "moment";
+// import "react-big-calendar/lib/css/react-big-calendar.css";
+// import { useState } from "react";
+
+// moment.locale("pt-br");
+
+// const localizer = momentLocalizer(moment);
+
+// const BigCalendar = ({
+//   data,
+// }: {
+//   data: { title: string; start: Date; end: Date }[];
+// }) => {
+//   const [view, setView] = useState<View>(Views.WORK_WEEK);
+
+//   const handleOnChangeView = (selectedView: View) => {
+//     setView(selectedView);
+//   };
+
+//   return (
+//     <Calendar
+//       localizer={localizer}
+//       events={data}
+//       startAccessor="start"
+//       endAccessor="end"
+//       views={["work_week", "day"]}
+//       view={view}
+//       style={{ height: "98%" }}
+//       onView={handleOnChangeView}
+//       min={new Date(2025, 1, 0, 8, 0, 0)}
+//       max={new Date(2025, 1, 0, 17, 0, 0)}
+//     />
+//   );
+// };
+
+// export default BigCalendar;

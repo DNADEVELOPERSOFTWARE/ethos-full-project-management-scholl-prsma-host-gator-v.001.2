@@ -15,7 +15,7 @@ import { cookies } from "next/headers";
 
 const BigCalendarContainer = dynamic(
   () => import("@/components/dashboards/calendar/BigCalendarContainer"),
-  { ssr: false }
+  { ssr: false },
 );
 
 const ParentPage = async () => {

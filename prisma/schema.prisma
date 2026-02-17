@@ -298,6 +298,7 @@ model Event {
   description String
   startTime   DateTime
   endTime     DateTime
+  type        String   @default("geral")
   classId     Int?
   class       Class?   @relation(fields: [classId], references: [id])
 }

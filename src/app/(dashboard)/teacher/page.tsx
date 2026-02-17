@@ -42,13 +42,12 @@ const TeacherPage = async () => {
 
   const { id: userId, role } = parsed;
   const classes = await prisma.class.findMany({
-  orderBy: { name: "asc" },
-});
+    orderBy: { name: "asc" },
+  });
 
-const subjects = await prisma.subject.findMany({
-  orderBy: { name: "asc" },
-});
-
+  const subjects = await prisma.subject.findMany({
+    orderBy: { name: "asc" },
+  });
 
   // ❗ PROTEÇÃO DE ROLE
   if (role !== "teacher") {
@@ -76,7 +75,7 @@ const subjects = await prisma.subject.findMany({
   return (
     <div className="flex-1 p-4 flex gap-4 flex-col xl:flex-row">
       {/* LEFT */}
-     
+
       {/* <VideoUploadForm classId={1} subjectId={1} /> */}
 
       <div className="w-full xl:w-2/3">
@@ -88,12 +87,12 @@ const subjects = await prisma.subject.findMany({
 
       {/* RIGHT */}
       <div className="w-full xl:w-1/3 flex flex-col gap-8">
-      <VideoLessonModal relatedData={{ classes, subjects }} />
-       <VideoLessonsBlock
-        title="Minhas Videoaulas"
-        lessons={videoLessons}
-        role="teacher"
-      />
+        <VideoLessonModal relatedData={{ classes, subjects }} />
+        <VideoLessonsBlock
+          title="Minhas Videoaulas"
+          lessons={videoLessons}
+          role="teacher"
+        />
         <Announcements />
       </div>
     </div>

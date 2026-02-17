@@ -1,0 +1,89 @@
+.eventCard {
+  padding: 1rem;
+  border-radius: 12px;
+  border: 2px solid #f3f4f6;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  &:hover {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    border-color: rgba(14, 165, 233, 0.4); // ethosSky
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h2 {
+    font-weight: 600;
+    color: #374151;
+  }
+}
+
+.badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.badge {
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+/* STATUS */
+.active {
+  background: rgba(5, 46, 22, 0.15);
+  color: #052e16;
+}
+
+.closed {
+  background: #d1d5db;
+  color: #374151;
+}
+
+/* CORES ETHOS */
+.aula {
+  background: #22c55e;
+  color: white;
+}
+
+.prova {
+  background: #ef4444;
+  color: white;
+}
+
+.aviso {
+  background: #0ea5e9;
+  color: white;
+}
+
+.reuniao {
+  background: #8b5cf6;
+  color: white;
+}
+
+.geral {
+  background: #facc15;
+  color: black;
+}
+
+.dates {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.description {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-top: 4px;
+}

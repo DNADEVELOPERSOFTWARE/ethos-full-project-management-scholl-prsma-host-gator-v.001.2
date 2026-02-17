@@ -37,24 +37,24 @@ const SingleTeacherPage = async ({
         _count: { subjects: number; lessons: number; classes: number };
       })
     | null = await prisma.teacher.findUnique({
-  where: { id },
-  include: {
-    user: {
-      select: {
-        email: true,
-        username: true,
+    where: { id },
+    include: {
+      user: {
+        select: {
+          email: true,
+          username: true,
+        },
+      },
+      _count: {
+        select: {
+          subjects: true,
+          lessons: true,
+          classes: true,
+        },
       },
     },
-    _count: {
-      select: {
-        subjects: true,
-        lessons: true,
-        classes: true,
-      },
-    },
-  },
-});
-    
+  });
+
   //   await prisma.teacher.findUnique({
   //   where: { id },
   //   include: {
@@ -71,7 +71,7 @@ const SingleTeacherPage = async ({
   if (!teacher) {
     return notFound();
   }
-  
+
   return (
     <div className="flex-1 p-4 flex flex-col gap-4 xl:flex-row">
       {/* LEFT */}

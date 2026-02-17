@@ -17,7 +17,7 @@ import { redirect } from "next/navigation";
 
 const BigCalendarContainer = dynamic(
   () => import("@/components/dashboards/calendar/BigCalendarContainer"),
-  { ssr: false }
+  { ssr: false },
 );
 
 const StudentPage = async () => {

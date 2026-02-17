@@ -5,7 +5,7 @@ import Announcements from "@/components/dashboards/announcements/Announcements";
 import AttendanceChartContainer from "@/components/dashboards/charts/attendance-charts/AttendanceChartContainer";
 import CountChartContainer from "@/components/dashboards/charts/count-chart-container/CountChartContainer";
 import EventCalendarContainer from "@/components/dashboards/calendar/EventCalendarContainer";
-import FinanceChart from "@/components/dashboards/charts/FinanceChart";
+import FinanceChart from "@/components/dashboards/charts/finance-charts/FinanceChart";
 
 import UserCard from "@/components/ui/cards/UserCard";
 const AdminPage = ({
