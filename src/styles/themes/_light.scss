@@ -1,41 +1,55 @@
 @use "../abstracts/variables" as v;
 
+/* ======================================================
+   ☀️ LIGHT THEME
+====================================================== */
 :root[data-theme="light"] {
-  /* surfaces */
+
+  /* ======================================================
+     🎨 SURFACES
+  ====================================================== */
   --surface-primary: #{v.$grl01};
   --surface-secondary: #{v.$grl02};
+  --surface-tertiary: #eef2ff;
+  --card-bg: #ffffff;
 
-  /* text */
+  /* Inverse Surfaces */
+  --surface-primary-inverse: #{v.$bl11};
+  --surface-secondary-inverse: #{v.$bl09};
+
+  /* ======================================================
+     📝 TEXT
+  ====================================================== */
   --text-primary: #{v.$bl11};
   --text-secondary: #{v.$bl08};
   --text-muted: #6b7280;
 
-  /* borders */
-  --border-primary: #{v.$bl03};
-
-  /* brand */
-  --accent-primary: #{v.$ethos-gold};
-  --button-text: #0c0f1a;
-
-  /* inverse background */
-    /* surfaces */
-  --surface-primary-inverse: #{v.$bl11};
-  --surface-secondary-inverse: #{v.$bl09};
-
-  /* text */
+  /* Inverse Text */
   --text-primary-inverse: #ffffff;
   --text-secondary-inverse: #9fb4d6;
   --text-muted-inverse: #64748b;
-  
-   /* borders */
+
+  /* ======================================================
+     🧱 BORDERS
+  ====================================================== */
+  --border-primary: #{v.$bl03};
   --border-primary-inverse: #{v.$bl09};
 
-  /* brand */
+  /* ======================================================
+     🏷 BRAND
+  ====================================================== */
+  --accent-primary: #{v.$ethos-gold};
   --accent-primary-inverse: #{v.$ethos-gold};
+
+  --button-text: #0c0f1a;
   --button-text-inverse: #0c0f1a;
 
-  /* contact */
- 
+  --ethos-sky: #0ea5e9;
+  --ethos-yellow: #f59e0b;
+
+  /* ======================================================
+     📞 CONTACT SECTION
+  ====================================================== */
   --contact-bg-start: #f8fafc;
   --contact-bg-end: #eef2ff;
 
@@ -64,40 +78,43 @@
   --contact-badge-bg: rgba(245, 158, 11, 0.12);
   --contact-bg-icon-opacity: 0.02;
 
-  /* ===== SYSTEM STATES ===== */
---success: #16a34a;
---danger: #dc2626;
---warning: #f59e0b;
---info: #0284c7;
+  /* ======================================================
+     ✅ SYSTEM STATES
+  ====================================================== */
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warning: #f59e0b;
+  --info: #0284c7;
 
-/* ===== INTERACTIONS ===== */
---hover-overlay: rgba(0, 0, 0, 0.03);
---active-overlay: rgba(0, 0, 0, 0.06);
---disabled-opacity: 0.5;
+  /* ======================================================
+     🖱 INTERACTIONS
+  ====================================================== */
+  --hover-overlay: rgba(0, 0, 0, 0.03);
+  --active-overlay: rgba(0, 0, 0, 0.06);
+  --disabled-opacity: 0.5;
 
-/* ===== EXTRA SURFACES ===== */
---surface-tertiary: #eef2ff;
---card-bg: #ffffff;
+  /* ======================================================
+     🌫 OVERLAY
+  ====================================================== */
+  --overlay-bg: rgba(15, 23, 42, 0.5);
 
-/* ===== OVERLAY ===== */
---overlay-bg: rgba(15, 23, 42, 0.5);
+  /* ======================================================
+     🌤 SHADOWS
+  ====================================================== */
+  --shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 10px 25px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 20px 40px rgba(15, 23, 42, 0.12);
 
-/* ===== SHADOWS ===== */
---shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.05);
---shadow-md: 0 10px 25px rgba(15, 23, 42, 0.08);
---shadow-lg: 0 20px 40px rgba(15, 23, 42, 0.12);
+  /* ======================================================
+     📊 DASHBOARD CARDS
+  ====================================================== */
+  --card-admin: #c7c6f6;
+  --card-teacher: #f6dd9c;
+  --card-student: #c7c6f6;
+  --card-parent: #f6dd9c;
 
-/* Dashboard Cards - Light */
-
---card-admin: #c7c6f6;      /* lavanda claro */
---card-teacher: #f6dd9c;    /* amarelo pastel */
---card-student: #c7c6f6;
---card-parent: #f6dd9c;
-
---card-text: #1f2937;       /* texto escuro */
---card-badge-bg: #dcfce7;   /* verde claro */
---card-badge-text: #166534; /* verde escuro */
-
---card-muted: #6b7280;
-
+  --card-text: #1f2937;
+  --card-badge-bg: #dcfce7;
+  --card-badge-text: #166534;
+  --card-muted: #6b7280;
 }

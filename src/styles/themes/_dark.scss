@@ -1,41 +1,55 @@
 @use "../abstracts/variables" as v;
 
+/* ======================================================
+   🌙 DARK THEME
+====================================================== */
 :root[data-theme="dark"] {
-  /* surfaces */
+
+  /* ======================================================
+     🎨 SURFACES
+  ====================================================== */
   --surface-primary: #{v.$bl11};
   --surface-secondary: #{v.$bl09};
+  --surface-tertiary: #{v.$bl08};
+  --card-bg: #{v.$bl09};
 
-  /* text */
+  /* Inverse Surfaces */
+  --surface-primary-inverse: #{v.$grl01};
+  --surface-secondary-inverse: #{v.$grl02};
+
+  /* ======================================================
+     📝 TEXT
+  ====================================================== */
   --text-primary: #ffffff;
   --text-secondary: #9fb4d6;
   --text-muted: #64748b;
 
-  /* borders */
-  --border-primary: #{v.$bl09};
-
-  /* brand */
-  --accent-primary: #{v.$ethos-gold};
-  --button-text: #0c0f1a;
-  
-  /* inverse background */
-    /* surfaces */
-  --surface-primary-inverse: #{v.$grl01};
-  --surface-secondary-inverse: #{v.$grl02};
-
-  /* text */
+  /* Inverse Text */
   --text-primary-inverse: #{v.$bl11};
   --text-secondary-inverse: #{v.$bl08};
   --text-muted-inverse: #6b7280;
 
-    /* borders */
+  /* ======================================================
+     🧱 BORDERS
+  ====================================================== */
+  --border-primary: #{v.$bl09};
   --border-primary-inverse: #{v.$bl03};
 
-  /* brand */
+  /* ======================================================
+     🏷 BRAND
+  ====================================================== */
+  --accent-primary: #{v.$ethos-gold};
   --accent-primary-inverse: #{v.$ethos-gold};
+
+  --button-text: #0c0f1a;
   --button-text-inverse: #0c0f1a;
 
+  --ethos-sky: #38bdf8;
+  --ethos-yellow: #fbbf24;
 
-  /* contact */
+  /* ======================================================
+     📞 CONTACT SECTION
+  ====================================================== */
   --contact-bg-start: #020617;
   --contact-bg-end: #0e0e55;
 
@@ -64,41 +78,55 @@
   --contact-badge-bg: rgba(251, 187, 85, 0.12);
   --contact-bg-icon-opacity: 0.025;
 
-/* ===== SYSTEM STATES ===== */
---success: #22c55e;
---danger: #ef4444;
---warning: #fbbf24;
---info: #38bdf8;
+  /* ======================================================
+     ✅ SYSTEM STATES
+  ====================================================== */
+  --success: #22c55e;
+  --danger: #ef4444;
+  --warning: #fbbf24;
+  --info: #38bdf8;
 
-/* ===== INTERACTIONS ===== */
---hover-overlay: rgba(255, 255, 255, 0.04);
---active-overlay: rgba(255, 255, 255, 0.08);
---disabled-opacity: 0.5;
+  /* ======================================================
+     🖱 INTERACTIONS
+  ====================================================== */
+  --hover-overlay: rgba(255, 255, 255, 0.04);
+  --active-overlay: rgba(255, 255, 255, 0.08);
+  --disabled-opacity: 0.5;
 
-/* ===== EXTRA SURFACES ===== */
---surface-tertiary: #{v.$bl08};
---card-bg: #{v.$bl09};
+  /* ======================================================
+     🌫 OVERLAY
+  ====================================================== */
+  --overlay-bg: rgba(0, 0, 0, 0.6);
 
-/* ===== OVERLAY ===== */
---overlay-bg: rgba(0, 0, 0, 0.6);
+  /* ======================================================
+     🌑 SHADOWS
+  ====================================================== */
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.45);
 
-/* ===== SHADOWS ===== */
---shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.25);
---shadow-md: 0 10px 25px rgba(0, 0, 0, 0.35);
---shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.45);
+  /* ======================================================
+     📊 DASHBOARD CARDS
+  ====================================================== */
+  --card-admin: #6d28d9;
+  --card-teacher: #d97706;
+  --card-student: #6d28d9;
+  --card-parent: #d97706;
 
-/* Dashboard Cards - Dark */
+  --card-text: #{v.$grl01};
+  --card-badge-bg: rgba(255,255,255,0.15);
+  --card-badge-text: #{v.$grl01};
+  --card-muted: #d1d5db;
+}
 
---card-admin: #6d28d9;
---card-teacher: #d97706;
---card-student: #6d28d9;
---card-parent: #d97706;
 
---card-text: v.$glr01;
-
---card-badge-bg: rgba(255,255,255,0.15);
---card-badge-text: v.$glr01;
-
---card-muted: #d1d5db;
-
+/* ======================================================
+   📦 CONTAINER BACKGROUND
+====================================================== */
+:root[data-theme="dark"] .container {
+  background: linear-gradient(
+    145deg,
+    var(--surface-secondary),
+    rgba(255, 255, 255, 0.02)
+  );
 }
