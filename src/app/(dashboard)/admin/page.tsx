@@ -2,7 +2,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 import Announcements from "@/components/dashboards/announcements/Announcements";
-import AttendanceChartContainer from "@/components/dashboards/charts/AttendanceChartContainer";
+import AttendanceChartContainer from "@/components/dashboards/charts/attendance-charts/AttendanceChartContainer";
 import CountChartContainer from "@/components/dashboards/charts/count-chart-container/CountChartContainer";
 import EventCalendarContainer from "@/components/dashboards/calendar/EventCalendarContainer";
 import FinanceChart from "@/components/dashboards/charts/FinanceChart";
