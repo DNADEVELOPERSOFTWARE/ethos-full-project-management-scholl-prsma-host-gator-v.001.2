@@ -3,6 +3,7 @@
 import Image from "next/image";
 import EventCalendar from "./EventCalendar";
 import EventList from "./EventList";
+import styles from "./eventCalendarContainer.module.scss";
 
 const allowedModes = ["day", "week", "future", "all"] as const;
 type Mode = (typeof allowedModes)[number];
@@ -19,22 +20,22 @@ const EventCalendarContainer = async ({
     : "future";
 
   return (
-    <div className="bg-white p-4 rounded-md">
+    <div className={styles.container}>
       <EventCalendar dateParam={date} />
 
-      <div className="flex items-center justify-between">
-        <h1 className="text-xl font-semibold my-4">Eventos</h1>
-        <button>
+      <div className={styles.header}>
+        <h1 className={styles.title}>Eventos</h1>
+        <button className={styles.moreButton}>
           <Image
             src="/moreDark.png"
             alt="Mais opções"
-            width={20}
-            height={20}
+            width={18}
+            height={18}
           />
         </button>
       </div>
 
-      <div className="flex flex-col gap-4">
+      <div className={styles.list}>
         <EventList
           dateParam={date}
           mode={effectiveMode}
@@ -46,6 +47,57 @@ const EventCalendarContainer = async ({
 };
 
 export default EventCalendarContainer;
+
+
+
+// // src/components/EventCalendarContainer.tsx
+
+// import Image from "next/image";
+// import EventCalendar from "./EventCalendar";
+// import EventList from "./EventList";
+
+// const allowedModes = ["day", "week", "future", "all"] as const;
+// type Mode = (typeof allowedModes)[number];
+
+// const EventCalendarContainer = async ({
+//   searchParams,
+// }: {
+//   searchParams: { [key: string]: string | undefined };
+// }) => {
+//   const { date, search, mode } = searchParams || {};
+
+//   const effectiveMode: Mode = allowedModes.includes(mode as Mode)
+//     ? (mode as Mode)
+//     : "future";
+
+//   return (
+//     <div className="bg-red-800 p-4 rounded-md">
+//       <EventCalendar dateParam={date} />
+
+//       <div className="flex items-center justify-between">
+//         <h1 className="text-xl font-semibold my-4">Eventos</h1>
+//         <button>
+//           <Image
+//             src="/moreDark.png"
+//             alt="Mais opções"
+//             width={20}
+//             height={20}
+//           />
+//         </button>
+//       </div>
+
+//       <div className="flex flex-col gap-4">
+//         <EventList
+//           dateParam={date}
+//           mode={effectiveMode}
+//           search={search}
+//         />
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default EventCalendarContainer;
 
 
 // // src/components/EventCalendarContainer.tsx

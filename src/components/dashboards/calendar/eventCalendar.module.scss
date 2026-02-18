@@ -1,74 +1,186 @@
-.calendarWrapper {
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--surface-secondary);
-  box-shadow: var(--shadow-sm);
-  padding: 1rem;
+.wrapper {
+  width: 100%;
 }
+
+/* =========================================
+   BASE CALENDAR
+========================================= */
 
 .calendar {
   width: 100%;
-  border: none;
-  background: transparent;
-  font-family: inherit;
+  border-radius: 16px;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  background: var(--surface-primary);
   color: var(--text-primary);
-
-  /* ===== NAVIGATION ===== */
-  .react-calendar__navigation {
-    display: flex;
-    margin-bottom: 1rem;
-
-    button {
-      background: transparent;
-      border: none;
-      color: var(--text-primary);
-      font-weight: 600;
-      font-size: 0.9rem;
-      border-radius: 8px;
-      padding: 6px 10px;
-      transition: background 0.2s ease;
-
-      &:hover {
-        background: var(--hover-overlay);
-      }
-    }
-  }
-
-  /* ===== WEEK DAYS ===== */
-  .react-calendar__month-view__weekdays {
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    color: var(--text-secondary);
-  }
-
-  /* ===== DAY TILES ===== */
-  .react-calendar__tile {
-    border-radius: 10px;
-    transition: all 0.2s ease;
-    padding: 8px 0;
-    color: var(--text-primary);
-
-    &:hover {
-      background: var(--hover-overlay);
-    }
-  }
-
-  /* ===== TODAY ===== */
-  .react-calendar__tile--now {
-    background: rgba(251, 187, 85, 0.15);
-    color: var(--text-primary);
-    font-weight: 600;
-  }
-
-  /* ===== SELECTED ===== */
-  .react-calendar__tile--active {
-    background: var(--accent-primary);
-    color: var(--button-text);
-    font-weight: 600;
-  }
-
-  /* ===== NEIGHBOR MONTH ===== */
-  .react-calendar__month-view__days__day--neighboringMonth {
-    color: var(--text-muted);
-  }
+  transition: all 0.3s ease;
 }
+
+/* =========================================
+   NAVIGATION (MÊS + SETAS)
+========================================= */
+
+.calendar .react-calendar__navigation {
+  margin-bottom: 1rem;
+}
+
+.calendar .react-calendar__navigation button {
+  color: var(--text-primary);
+  font-weight: 600;
+  background: transparent;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.calendar .react-calendar__navigation button:hover {
+  background: var(--surface-secondary);
+}
+
+/* =========================================
+   WEEKDAYS HEADER
+========================================= */
+
+.calendar .react-calendar__month-view__weekdays {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.calendar abbr {
+  text-decoration: none;
+}
+
+/* =========================================
+   DAYS
+========================================= */
+
+.calendar .react-calendar__tile {
+  border-radius: 10px;
+  padding: 0.75rem 0;
+  transition: all 0.2s ease;
+}
+
+.calendar .react-calendar__tile:hover {
+  background: var(--surface-secondary);
+}
+
+/* =========================================
+   TODAY
+========================================= */
+
+.calendar .react-calendar__tile--now {
+  background: var(--ethosSkyLight);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* =========================================
+   SELECTED DAY
+========================================= */
+
+.calendar .react-calendar__tile--active {
+  background: var(--ethosSky);
+  color: white;
+}
+
+/* =========================================
+   WEEKEND
+========================================= */
+
+.calendar .react-calendar__month-view__days__day--weekend {
+  color: var(--ethosRed);
+}
+
+/* =========================================
+   DARK MODE AJUSTES FINOS
+========================================= */
+
+:root[data-theme="dark"] .calendar {
+  background: var(--surface-secondary);
+}
+
+:root[data-theme="dark"] .react-calendar__tile--now {
+  background: rgba(99, 102, 241, 0.2);
+}
+
+:root[data-theme="dark"] .react-calendar__tile:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+
+// .calendarWrapper {
+//   border-radius: 16px;
+//   overflow: hidden;
+//   background: var(--surface-secondary);
+//   box-shadow: var(--shadow-sm);
+//   padding: 1rem;
+// }
+
+// .calendar {
+//   width: 100%;
+//   border: none;
+//   background: transparent;
+//   font-family: inherit;
+//   color: var(--text-primary);
+
+//   /* ===== NAVIGATION ===== */
+//   .react-calendar__navigation {
+//     display: flex;
+//     margin-bottom: 1rem;
+  
+//     button {
+//       background: transparent;
+//       border: none;
+//       color: var(--text-primary);
+//       font-weight: 600;
+//       font-size: 0.9rem;
+//       border-radius: 8px;
+//       padding: 6px 10px;
+//       transition: background 0.2s ease;
+
+//       &:hover {
+//         background: var(--hover-overlay);
+//       }
+//     }
+//   }
+
+//   /* ===== WEEK DAYS ===== */
+//   .react-calendar__month-view__weekdays {
+//     text-transform: uppercase;
+//     font-size: 0.7rem;
+//     color: var(--text-secondary);
+  
+//   }
+
+//   /* ===== DAY TILES ===== */
+//   .react-calendar__tile {
+//     border-radius: 10px;
+//     transition: all 0.2s ease;
+//     padding: 8px 0;
+//     color: var(--text-primary);
+
+//     &:hover {
+//       background: var(--hover-overlay);
+//     }
+//   }
+
+//   /* ===== TODAY ===== */
+//   .react-calendar__tile--now {
+//     background: rgba(251, 187, 85, 0.15);
+//     color: var(--text-primary);
+//     font-weight: 600;
+//   }
+
+//   /* ===== SELECTED ===== */
+//   .react-calendar__tile--active {
+//     background: var(--accent-primary);
+//     color: var(--button-text);
+//     font-weight: 600;
+//   }
+
+//   /* ===== NEIGHBOR MONTH ===== */
+//   .react-calendar__month-view__days__day--neighboringMonth {
+//     color: var(--text-muted);
+//   }
+// }
