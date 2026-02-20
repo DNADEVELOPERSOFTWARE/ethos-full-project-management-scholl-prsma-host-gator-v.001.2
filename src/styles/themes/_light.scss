@@ -4,7 +4,6 @@
    ☀️ LIGHT THEME
 ====================================================== */
 :root[data-theme="light"] {
-
   /* ======================================================
      🎨 SURFACES
   ====================================================== */
@@ -117,4 +116,7 @@
   --card-badge-bg: #dcfce7;
   --card-badge-text: #166534;
   --card-muted: #6b7280;
+
+  --chart-present: #facc15; // amarelo ethos
+  --chart-absent: #38bdf8; // azul ethos
 }
