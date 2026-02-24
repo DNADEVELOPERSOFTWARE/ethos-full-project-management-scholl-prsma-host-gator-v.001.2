@@ -1,9 +1,8 @@
 import Menu from "@/components/layouts/menus/Menu";
-import Navbar from "@/components/layouts/navbars/Navbar";
+import DashboardShell from "@/components/layouts/DashboardShell";
 import Image from "next/image";
 import Link from "next/link";
 import { Toaster } from "sonner";
-
 import styles from "./layout.module.scss";
 
 export default function DashboardLayout({
@@ -11,31 +10,25 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const sidebar = (
+    <>
+      <Link href="/" className={styles.logo}>
+        <Image src="/logo-ETHOS.png" alt="logo" width={32} height={32} />
+        <span className={styles.logoText}>ETHOS CPAC</span>
+      </Link>
+      <Menu />
+    </>
+  );
+
   return (
     <>
       <Toaster position="top-right" richColors closeButton />
-
-      <div className={styles.dashboard}>
-        {/* LEFT SIDEBAR */}
-        <aside className={styles.sidebar}>
-          <Link href="/" className={styles.logo}>
-            <Image src="/logo-ETHOS.png" alt="logo" width={32} height={32} />
-            <span className={styles.logoText}>ETHOS CPAC</span>
-          </Link>
-          <Menu />
-        </aside>
-
-        {/* RIGHT CONTENT */}
-        <div className={styles.content}>
-          <Navbar />
-          <main className={styles.main}>{children}</main>
-        </div>
-      </div>
+      <DashboardShell sidebar={sidebar}>
+        {children}
+      </DashboardShell>
     </>
   );
 }
-
-
 // import Menu from "@/components/layouts/menus/Menu";
 // import Navbar from "@/components/layouts/navbars/Navbar";
 // import Image from "next/image";

@@ -7,8 +7,16 @@ import { Search, MessageCircle, Bell, Sun, Moon } from "lucide-react";
 import Icon from "@/components/ui/icons/Icon";
 import styles from "./navbar.module.scss";
 
-const Navbar = () => {
-  const [user, setUser] = useState<{ firstName: string; role: string } | null>(null);
+import { Menu } from "lucide-react";
+
+type NavbarProps = {
+  onMenuClick?: () => void;
+};
+
+const Navbar = ({ onMenuClick }: { onMenuClick: () => void }) => {
+  const [user, setUser] = useState<{ firstName: string; role: string } | null>(
+    null,
+  );
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
@@ -42,6 +50,10 @@ const Navbar = () => {
 
   return (
     <div className={styles.navbar}>
+      {/* BOTÃO HAMBURGUER */}
+      <button className={styles.menuButton} onClick={onMenuClick} type="button">
+        <Menu size={22} />
+      </button>
       {/* SEARCH */}
       <div className={styles.search}>
         <Icon icon={Search} size={16} />
@@ -61,11 +73,7 @@ const Navbar = () => {
 
         {/* THEME TOGGLE */}
         <div className={styles.iconButton} onClick={toggleTheme}>
-          {theme === "light" ? (
-            <Icon icon={Moon} />
-          ) : (
-            <Icon icon={Sun} />
-          )}
+          {theme === "light" ? <Icon icon={Moon} /> : <Icon icon={Sun} />}
         </div>
 
         {/* USER INFO */}

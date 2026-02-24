@@ -1,47 +1,140 @@
 .menu {
   margin-top: 1rem;
   font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
+
+/* ================= SECTION ================= */
 
 .section {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 }
 
 .sectionTitle {
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   color: var(--text-secondary);
-  margin: 1rem 0 0.5rem 0;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
 }
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* ================= LINK ================= */
 
 .link {
   position: relative;
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.6rem 0.75rem;
-  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
   color: var(--text-primary);
   text-decoration: none;
-  transition: background 0.2s ease;
-
-  &:hover {
-    background: var(--bg-secondary);
-  }
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
+
+.link:hover {
+  background: var(--bg-secondary);
+  transform: translateX(2px);
+}
+
+/* ================= LABEL ================= */
 
 .label {
   font-size: 0.85rem;
+  white-space: nowrap;
 }
 
+/* ================= BADGE ================= */
+
 .badge {
-  position: absolute;
-  right: 12px;
+  margin-left: auto;
   background: var(--brand-primary);
   color: white;
   font-size: 11px;
   padding: 2px 8px;
   border-radius: 999px;
+  font-weight: 500;
 }
+
+/* ================= TABLET (SIDEBAR COLAPSADA) ================= */
+
+@media (max-width: 1200px) {
+  .sectionTitle {
+    display: none;
+  }
+
+  .label {
+    display: none;
+  }
+
+  .link {
+    justify-content: center;
+    padding: 0.75rem;
+  }
+
+  .badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    padding: 2px 6px;
+  }
+}
+
+// .menu {
+//   margin-top: 1rem;
+//   font-size: 0.9rem;
+// }
+
+// .section {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 0.5rem;
+// }
+
+// .sectionTitle {
+//   font-size: 0.75rem;
+//   font-weight: 500;
+//   color: var(--text-secondary);
+//   margin: 1rem 0 0.5rem 0;
+// }
+
+// .link {
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   gap: 0.75rem;
+//   padding: 0.6rem 0.75rem;
+//   border-radius: 8px;
+//   color: var(--text-primary);
+//   text-decoration: none;
+//   transition: background 0.2s ease;
+
+//   &:hover {
+//     background: var(--bg-secondary);
+//   }
+// }
+
+// .label {
+//   font-size: 0.85rem;
+// }
+
+// .badge {
+//   position: absolute;
+//   right: 12px;
+//   background: var(--brand-primary);
+//   color: white;
+//   font-size: 11px;
+//   padding: 2px 8px;
+//   border-radius: 999px;
+// }

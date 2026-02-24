@@ -107,15 +107,15 @@ const Menu = async () => {
       where: { isRead: false },
     });
   }
+return (
+  <nav className={styles.menu}>
+    {menuItems
+      .filter((section) => !section.visibleTo || section.visibleTo.includes(role))
+      .map((section) => (
+        <div key={section.title} className={styles.section}>
+          <span className={styles.sectionTitle}>{section.title}</span>
 
-  return (
-    <div className={styles.menu}>
-      {menuItems
-        .filter((section) => !section.visibleTo || section.visibleTo.includes(role))
-        .map((section) => (
-          <div key={section.title} className={styles.section}>
-            <span className={styles.sectionTitle}>{section.title}</span>
-
+          <div className={styles.links}>
             {section.items
               .filter((item) => item.visible.includes(role))
               .map((item) => (
@@ -129,9 +129,34 @@ const Menu = async () => {
                 </Link>
               ))}
           </div>
-        ))}
-    </div>
-  );
+        </div>
+      ))}
+  </nav>
+);
+  // return (
+  //   <div className={styles.menu}>
+  //     {menuItems
+  //       .filter((section) => !section.visibleTo || section.visibleTo.includes(role))
+  //       .map((section) => (
+  //         <div key={section.title} className={styles.section}>
+  //           <span className={styles.sectionTitle}>{section.title}</span>
+
+  //           {section.items
+  //             .filter((item) => item.visible.includes(role))
+  //             .map((item) => (
+  //               <Link key={item.label} href={item.href} className={styles.link}>
+  //                 <Icon icon={item.icon} size={18} />
+  //                 <span className={styles.label}>{item.label}</span>
+
+  //                 {item.badge === "contacts" && unreadContacts > 0 && (
+  //                   <span className={styles.badge}>{unreadContacts}</span>
+  //                 )}
+  //               </Link>
+  //             ))}
+  //         </div>
+  //       ))}
+  //   </div>
+  // );
 };
 
 export default Menu;
