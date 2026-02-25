@@ -106,15 +106,15 @@
     color: var(--text-secondary);
   }
 }
-// .active {
-//   background: var(--status-active-bg);
-//   color: var(--status-active-text);
-// }
+.active {
+  background: var(--status-active-bg);
+  color: var(--status-active-text);
+}
 
-// .inactive {
-//   background: var(--status-inactive-bg);
-//   color: var(--status-inactive-text);
-// }
+.inactive {
+  background: var(--status-inactive-bg);
+  color: var(--status-inactive-text);
+}
 
 .status {
   padding: 0.3rem 0.8rem;

@@ -1,6 +1,8 @@
 .card {
   background: var(--surface-card);
-  border: 1px solid var(--border-color);
+  // border: 1px solid var(--border-color);
+  border: 1px solid var(--border-primary);
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   border-radius: 18px;
   padding: 1.5rem;
 
@@ -44,20 +46,27 @@
   margin-top: 1.2rem;
   display: flex;
   gap: 1rem;
+}
 
-  a,
-  button {
-    background: var(--surface-secondary);
-    border-radius: 10px;
-    padding: 0.5rem;
-    cursor: pointer;
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-    transition: 0.2s;
+.actionButton {
+  width: 40px;
+  height: 40px;
 
-    &:hover {
-      background: var(--accent-primary);
-      color: white;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  color: var(--text-primary);
+
+  &:hover {
+    background: var(--accent-primary);
+    color: white;
   }
 }

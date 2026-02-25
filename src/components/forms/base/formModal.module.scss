@@ -7,12 +7,16 @@
   align-items: center;
   justify-content: center;
   z-index: 999;
+  padding: 2rem;
+  overflow-y: auto;
 }
 
 .modal {
   position: relative;
   width: 92%;
   max-width: 720px;
+  max-height: 90vh;
+  overflow-y: auto;
   background: var(--surface-primary);
   border-radius: 16px;
   padding: 2rem;
@@ -61,17 +65,19 @@
 }
 
 .create {
-  background: var(--accent-warning);
+  background: transparent;
 }
 
 .update {
-  background: var(--accent-info);
+  background: transparent;
 }
 
 .delete {
-  background: var(--accent-danger);
+  background: transparent;
 }
-
+.delete svg {
+  color: var(--accent-danger);
+}
 .sm {
   width: 32px;
   height: 32px;

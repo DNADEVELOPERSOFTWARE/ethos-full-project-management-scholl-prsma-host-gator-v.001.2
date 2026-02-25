@@ -39,7 +39,10 @@ const TeacherV2Page = async () => {
 
       <div className={styles.grid}>
         {teachers.map((teacher) => (
-          <TeacherCard key={teacher.id} teacher={teacher} role={role} />
+          <TeacherCard 
+          key={teacher.id} 
+          teacher={teacher}
+          role={role ?? undefined} />
         ))}
       </div>
     </div>

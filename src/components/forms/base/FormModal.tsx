@@ -145,7 +145,7 @@ const FormModal = ({
   return (
     <>
       <button className={triggerClass} onClick={() => setOpen(true)}>
-        <Icon size={16} color="white" />
+        <Icon size={16} color="var(--text-primary)" />
       </button>
 
       {open && (
