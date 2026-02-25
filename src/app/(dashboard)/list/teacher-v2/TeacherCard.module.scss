@@ -1,0 +1,63 @@
+.card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  transition: all 0.25s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  h3 {
+    margin-top: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+}
+
+.avatar img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.subjects {
+  margin-top: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.meta {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.actions {
+  margin-top: 1.2rem;
+  display: flex;
+  gap: 1rem;
+
+  a,
+  button {
+    background: var(--surface-secondary);
+    border-radius: 10px;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    transition: 0.2s;
+
+    &:hover {
+      background: var(--accent-primary);
+      color: white;
+    }
+  }
+}

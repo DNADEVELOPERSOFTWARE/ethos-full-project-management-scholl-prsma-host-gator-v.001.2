@@ -116,9 +116,29 @@
   --card-badge-bg: rgba(255, 255, 255, 0.15);
   --card-badge-text: #{v.$grl01};
   --card-muted: #d1d5db;
+ /* ======================================================
+     📊 BADGES
+  ====================================================== */
+  --status-success-bg: #14532d;
+--status-success-text: #bbf7d0;
+
+--status-danger-bg: #7f1d1d;
+--status-danger-text: #fecaca;
+
+--status-warning-bg: #78350f;
+--status-warning-text: #fde68a;
+
+--status-info-bg: #1e3a8a;
+--status-info-text: #bfdbfe;
 
   --chart-present: #fde047;
   --chart-absent: #7dd3fc;
+
+  --status-active-bg: #14532d;
+--status-active-text: #bbf7d0;
+
+--status-inactive-bg: #7f1d1d;
+--status-inactive-text: #fecaca;
 }
 
 /* ======================================================

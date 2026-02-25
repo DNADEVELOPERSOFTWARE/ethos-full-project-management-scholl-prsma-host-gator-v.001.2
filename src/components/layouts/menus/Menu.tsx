@@ -43,17 +43,72 @@ const menuItems: MenuSection[] = [
   {
     title: "MENU",
     items: [
-      { icon: Home, label: "Home", href: "/", visible: ["admin", "teacher", "student", "parent"] },
-      { icon: Users, label: "Professores", href: "/list/teachers", visible: ["admin", "teacher"] },
-      { icon: GraduationCap, label: "Alunos", href: "/list/students", visible: ["admin", "teacher"] },
-      { icon: Users, label: "Responsáveis", href: "/list/parents", visible: ["admin", "teacher"] },
-      { icon: School, label: "Série", href: "/list/grades", visible: ["admin", "teacher"] },
-      { icon: BookOpen, label: "Discíplinas", href: "/list/subjects", visible: ["admin"] },
-      { icon: Users, label: "Turmas", href: "/list/classes", visible: ["admin", "teacher"] },
-      { icon: ClipboardList, label: "Lições", href: "/list/lessons", visible: ["admin", "teacher"] },
-      { icon: FileText, label: "Testes / Provas", href: "/list/exams", visible: ["admin", "teacher", "student", "parent"] },
-      { icon: CheckCircle, label: "Resultados", href: "/list/results", visible: ["admin", "teacher", "student", "parent"] },
-      { icon: Calendar, label: "Eventos", href: "/list/events", visible: ["admin", "teacher", "student", "parent"] },
+      {
+        icon: Home,
+        label: "Home",
+        href: "/",
+        visible: ["admin", "teacher", "student", "parent"],
+      },
+      {
+        icon: Users,
+        label: "Professores",
+        href: "/list/teacher-v2",
+        visible: ["admin", "teacher"],
+      },
+      {
+        icon: GraduationCap,
+        label: "Alunos",
+        href: "/list/students",
+        visible: ["admin", "teacher"],
+      },
+      {
+        icon: Users,
+        label: "Responsáveis",
+        href: "/list/parents",
+        visible: ["admin", "teacher"],
+      },
+      {
+        icon: School,
+        label: "Série",
+        href: "/list/grades",
+        visible: ["admin", "teacher"],
+      },
+      {
+        icon: BookOpen,
+        label: "Discíplinas",
+        href: "/list/subjects",
+        visible: ["admin"],
+      },
+      {
+        icon: Users,
+        label: "Turmas",
+        href: "/list/classes",
+        visible: ["admin", "teacher"],
+      },
+      {
+        icon: ClipboardList,
+        label: "Lições",
+        href: "/list/lessons",
+        visible: ["admin", "teacher"],
+      },
+      {
+        icon: FileText,
+        label: "Testes / Provas",
+        href: "/list/exams",
+        visible: ["admin", "teacher", "student", "parent"],
+      },
+      {
+        icon: CheckCircle,
+        label: "Resultados",
+        href: "/list/results",
+        visible: ["admin", "teacher", "student", "parent"],
+      },
+      {
+        icon: Calendar,
+        label: "Eventos",
+        href: "/list/events",
+        visible: ["admin", "teacher", "student", "parent"],
+      },
     ],
   },
   {
@@ -72,9 +127,24 @@ const menuItems: MenuSection[] = [
   {
     title: "OUTROS",
     items: [
-      { icon: User, label: "Perfil", href: "/profile", visible: ["admin", "teacher", "student", "parent"] },
-      { icon: Settings, label: "Ajustes", href: "/settings", visible: ["admin", "teacher", "student", "parent"] },
-      { icon: LogOut, label: "Sair", href: "/logout", visible: ["admin", "teacher", "student", "parent"] },
+      {
+        icon: User,
+        label: "Perfil",
+        href: "/profile",
+        visible: ["admin", "teacher", "student", "parent"],
+      },
+      {
+        icon: Settings,
+        label: "Ajustes",
+        href: "/settings",
+        visible: ["admin", "teacher", "student", "parent"],
+      },
+      {
+        icon: LogOut,
+        label: "Sair",
+        href: "/logout",
+        visible: ["admin", "teacher", "student", "parent"],
+      },
     ],
   },
 ];
@@ -107,32 +177,38 @@ const Menu = async () => {
       where: { isRead: false },
     });
   }
-return (
-  <nav className={styles.menu}>
-    {menuItems
-      .filter((section) => !section.visibleTo || section.visibleTo.includes(role))
-      .map((section) => (
-        <div key={section.title} className={styles.section}>
-          <span className={styles.sectionTitle}>{section.title}</span>
+  return (
+    <nav className={styles.menu}>
+      {menuItems
+        .filter(
+          (section) => !section.visibleTo || section.visibleTo.includes(role),
+        )
+        .map((section) => (
+          <div key={section.title} className={styles.section}>
+            <span className={styles.sectionTitle}>{section.title}</span>
 
-          <div className={styles.links}>
-            {section.items
-              .filter((item) => item.visible.includes(role))
-              .map((item) => (
-                <Link key={item.label} href={item.href} className={styles.link}>
-                  <Icon icon={item.icon} size={18} />
-                  <span className={styles.label}>{item.label}</span>
+            <div className={styles.links}>
+              {section.items
+                .filter((item) => item.visible.includes(role))
+                .map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className={styles.link}
+                  >
+                    <Icon icon={item.icon} size={18} />
+                    <span className={styles.label}>{item.label}</span>
 
-                  {item.badge === "contacts" && unreadContacts > 0 && (
-                    <span className={styles.badge}>{unreadContacts}</span>
-                  )}
-                </Link>
-              ))}
+                    {item.badge === "contacts" && unreadContacts > 0 && (
+                      <span className={styles.badge}>{unreadContacts}</span>
+                    )}
+                  </Link>
+                ))}
+            </div>
           </div>
-        </div>
-      ))}
-  </nav>
-);
+        ))}
+    </nav>
+  );
   // return (
   //   <div className={styles.menu}>
   //     {menuItems
@@ -160,4 +236,3 @@ return (
 };
 
 export default Menu;
-
